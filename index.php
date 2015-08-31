@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $page_list = [
     'header' => 'template/header.php',
@@ -28,6 +29,8 @@ $page_list = [
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
     <script src="includes/login.js"></script>
+
+    <script src="includes/logout.js"></script>
 
     <style>
         .log {
