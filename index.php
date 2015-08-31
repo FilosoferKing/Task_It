@@ -27,6 +27,8 @@ $page_list = [
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+    <script src="includes/login.js"></script>
+
     <style>
         .log {
             padding: 0;
@@ -107,24 +109,6 @@ $page_list = [
 
     <script>
 
-        function update_dom(url, target){
-            console.log("Hello good sir");
-            $.ajax({
-                url: url,
-                method: 'GET',
-                dataType: 'html',
-                success: function(response){
-                    console.log(response);
-                    $(target).html(response);
-
-                },
-                error: function(response){
-                    console.log("Error: ", response);
-                }
-
-            });
-        }
-
         $(document).ready(function(){
 
 
@@ -166,30 +150,6 @@ $page_list = [
 
 
 
-            $('.login_button').on('click', function(){
-                var user_name = $('.username').val();
-                var pass_word = $('.password').val();
-                var url_page = $(this).attr('data_url');
-                var url_target = $(this).attr('data_target');
-                console.log(url_page, url_target);
-
-                $.ajax({
-                    url: 'includes/login.php',
-                    data: {username: user_name, password: pass_word},
-                    method: 'POST',
-                    dataType: "text",
-                    cache: false,
-                    success: function(response) {
-                        console.log("Login response: ", response);
-                        update_dom(url_page, url_target);
-                    },
-                    error: function(response){
-                        console.log(response);
-                    }
-                });
-            });
-
-
 
 
         });
@@ -203,10 +163,10 @@ $page_list = [
     ?>
 </header>
 <?php
-include($page_list['create_todo_item']);
-include($page_list['list_all_items']);
-include($page_list['display_item']);
-include($page_list['footer']);
+//include($page_list['create_todo_item']);
+//include($page_list['list_all_items']);
+//include($page_list['display_item']);
+//include($page_list['footer']);
 ?>
 
 </body>
