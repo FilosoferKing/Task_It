@@ -9,7 +9,7 @@ session_start();
         <h1>TO DO LIST</h1>
     </div>
     <?php
-    if (empty($_SESSION['user'])) {
+    if (empty($_SESSION['session_id'])) {
     ?>
     <div class="col-xs-12 col-sm-4 col-sm-pull-4 input row">
         <div class="col-xs-12 col-sm-4 input">
@@ -37,14 +37,14 @@ session_start();
                 <h2>Create</h2>
             </div>
         </div>
-        <div class="col-xs-4 col-sm-4 logout">
+        <div class="col-xs-4 col-sm-4 logout" data_url="template/header.php" data_target="#top_nav">
             <div class="col-xs-12 logout_text">
                 <h2>Logout</h2>
             </div>
         </div>
     </header>
     <?php
-    session_destroy();
+    //session_destroy();
 }
 ?>
 
