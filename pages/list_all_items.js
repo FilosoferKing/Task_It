@@ -2,7 +2,8 @@ function loadTodoList(userId){
     console.log(userId);
     $.ajax({
         dataType: 'json',
-        url: 'http://s-apis.learningfuze.com/todo/get',
+        url: 'list_all_items.php',
+        data: 1,
         method: "POST",
         crossDomain: true,
         data: 1,

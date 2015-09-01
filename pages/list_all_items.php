@@ -2,6 +2,12 @@
 
 session_start();
 
+print_r($_POST);
+
+require('../mysql_connect.php');
+
+//$query = "SELECT * FROM `todo_items` WHERE `user_id` = "
+
 ?>
 
 <div class="col-xs-12 col-sm-6 items_list">

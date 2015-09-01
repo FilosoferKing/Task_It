@@ -15,34 +15,17 @@ $(document).ready(function () {
 });
 
 function login(user_name, pass_word, url_page, url_target){
+    console.log(user_name, pass_word);
     $.ajax({
-        url: 'http://s-apis.learningfuze.com/todo/login',
+        url: './includes/login.php',
         data: {username: user_name, password: pass_word},
         method: 'POST',
         dataType: "json",
         cache: false,
         success: function (response) {
             console.log("Login response: ", response);
-            sessionsCall(response, url_page, url_target);
-            loadTodoList(response.id);
-            //bump update_dom to here once we don't need sessionsCall
-        },
-        error: function (response) {
-            console.log(response);
-        }
-    });
-}
-
-function sessionsCall(loginData, page, target) {
-    $.ajax({
-        url: 'includes/login.php',
-        data: loginData,
-        method: 'POST',
-        dataType: "text",
-        cache: false,
-        success: function (response) {
-            console.log("Login response: ", response);
-            update_dom(page, target);
+            update_dom(url_page, url_target);
+            //loadTodoList(response.id);
         },
         error: function (response) {
             console.log(response);
@@ -51,6 +34,7 @@ function sessionsCall(loginData, page, target) {
 }
 
 function update_dom(url, target) {
+    console.log(url, target);
     $.ajax({
         url: url,
         method: 'GET',
@@ -64,7 +48,6 @@ function update_dom(url, target) {
                 var url_target = $(this).attr('data_target');
                 logout(url_page, url_target);
             });
-
 
             $('.login_button').on('click', function () {
                 var user_name = $('.username').val();
