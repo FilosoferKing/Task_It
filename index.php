@@ -32,6 +32,8 @@ $page_list = [
 
     <script src="includes/logout.js"></script>
 
+    <script src="includes/view_create_input.js"></script>
+
     <style>
         .log {
             padding: 0;
@@ -101,7 +103,7 @@ $page_list = [
         }
 
         .create_item .input_container > .title {
-            padding: auto 15px:
+            padding: auto 15 px :
         }
 
         .create_button {
@@ -112,32 +114,32 @@ $page_list = [
 
     <script>
 
-        $(document).ready(function(){
+        $(document).ready(function () {
 
 
-                $.ajax({
-                    url: 'get_todo_items.json',
-                    dataType: 'json',
-                    method: "POST",
-                    success: function(response) {
-                        console.log(response);
-                        $('.list_item_container:nth-child(1) .item:nth-child(1) p:nth-child(1)').text(response[0].title);
-                        $('.list_item_container:nth-child(1) li:nth-child(1)').text(response[0].details);
-                        $('.list_item_container:nth-child(1) li:nth-child(2)').text(response[0].timeStamp);
+            $.ajax({
+                url: 'get_todo_items.json',
+                dataType: 'json',
+                method: "POST",
+                success: function (response) {
+                    console.log(response);
+                    $('.list_item_container:nth-child(1) .item:nth-child(1) p:nth-child(1)').text(response[0].title);
+                    $('.list_item_container:nth-child(1) li:nth-child(1)').text(response[0].details);
+                    $('.list_item_container:nth-child(1) li:nth-child(2)').text(response[0].timeStamp);
 
-                        $('.list_item_container:nth-child(2) .item:nth-child(1) p:nth-child(1)').text(response[1].title);
-                        $('.list_item_container:nth-child(2) li:nth-child(1)').text(response[1].details);
-                        $('.list_item_container:nth-child(2) li:nth-child(2)').text(response[1].timeStamp);
+                    $('.list_item_container:nth-child(2) .item:nth-child(1) p:nth-child(1)').text(response[1].title);
+                    $('.list_item_container:nth-child(2) li:nth-child(1)').text(response[1].details);
+                    $('.list_item_container:nth-child(2) li:nth-child(2)').text(response[1].timeStamp);
 
-                        $('.list_item_container:nth-child(3) .item:nth-child(1) p:nth-child(1)').text(response[2].title);
-                        $('.list_item_container:nth-child(3) li:nth-child(1)').text(response[2].details);
-                        $('.list_item_container:nth-child(3) li:nth-child(2)').text(response[2].timeStamp);
+                    $('.list_item_container:nth-child(3) .item:nth-child(1) p:nth-child(1)').text(response[2].title);
+                    $('.list_item_container:nth-child(3) li:nth-child(1)').text(response[2].details);
+                    $('.list_item_container:nth-child(3) li:nth-child(2)').text(response[2].timeStamp);
 
 
-                    }
-                });
+                }
+            });
 
-            function create_todo_item(){
+            function create_todo_item() {
                 var item_title = $('#item_title').val();
                 var item_due_date = $('#item_due_date').val();
                 var item_details = $('#item_details').val();
@@ -147,12 +149,9 @@ $page_list = [
                 $('.list_item_container:nth-child(4) .date p:nth-child(1)').text(item_due_date);
             }
 
-            $('.create_button').on('click', function(){
+            $('.create_button').on('click', function () {
                 create_todo_item();
             });
-
-
-
 
 
         });
@@ -165,12 +164,14 @@ $page_list = [
     include($page_list['header']);
     ?>
 </header>
-<?php
-//include($page_list['create_todo_item']);
-//include($page_list['list_all_items']);
-//include($page_list['display_item']);
-//include($page_list['footer']);
-?>
+<div class="display">
+    <?php
+    //include($page_list['create_todo_item']);
+    //include($page_list['list_all_items']);
+    //include($page_list['display_item']);
+    //include($page_list['footer']);
+    ?>
+</div>
 
 </body>
 </html>
