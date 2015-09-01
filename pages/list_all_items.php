@@ -1,9 +1,8 @@
-<script>
+<?php
 
+session_start();
 
-
-
-</script>
+?>
 
 <div class="col-xs-12 col-sm-6 items_list">
     <div class="col-xs-12 list_item_container">

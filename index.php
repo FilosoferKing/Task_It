@@ -32,6 +32,8 @@ $page_list = [
 
     <script src="includes/logout.js"></script>
 
+    <script src="pages/list_all_items.js"></script>
+
     <style>
         .log {
             padding: 0;
