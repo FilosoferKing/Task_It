@@ -8,19 +8,26 @@ $(document).ready(function () {
         login(user_name, pass_word, url_page, url_target);
     });
 
+    $(".logout").click(function(){
+        var url_page = $(this).attr('data_url');
+        var url_target = $(this).attr('data_target');
+        logout(url_page, url_target);
+    });
+
 });
 
 function login(user_name, pass_word, url_page, url_target){
     $.ajax({
-        url: 'http://s-apis.learningfuze.com/todo/login',
+        url: 'includes/login.php',
         data: {username: user_name, password: pass_word},
         method: 'POST',
         dataType: "json",
         cache: false,
         success: function (response) {
             console.log("Login response: ", response);
-            sessionsCall(response, url_page, url_target);
-            //bump update_dom to here once we don't need sessionsCall
+            update_dom(url_page, url_target);
+            //sessionsCall(response, url_page, url_target);//function to get and create session info from LearningFuze back-end
+
         },
         error: function (response) {
             console.log(response);
@@ -36,7 +43,7 @@ function sessionsCall(loginData, page, target) {
         dataType: "text",
         cache: false,
         success: function (response) {
-            console.log("Login response: ", response);
+            console.log("Session response: ", response);
             update_dom(page, target);
         },
         error: function (response) {
@@ -51,8 +58,12 @@ function update_dom(url, target) {
         method: 'GET',
         dataType: 'html',
         success: function (response) {
-            console.log(response);
+            console.log("Append response: ", target, response);
             $(target).html(response);
+
+            $('.create').on('click', function(){
+                view_list();
+            });
 
             $(".logout").click(function(){
                 var url_page = $(this).attr('data_url');
