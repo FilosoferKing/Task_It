@@ -6,13 +6,16 @@ function loadTodoList(){
         cache: 'false',
         success: function(response){
             console.log(response);
-            $(".todoList").remove();
+            $(".todoList, .clearTodo").remove();
             var todoList = $("<div>", {
                 class: "todoList"
             });
             console.log(response.length);
             for(i = 0; i < response.length; i++){
-                var li = $("<li>");
+                var li = $("<li>", {
+                    class: "todoContainer deleted" + response[i].deleted,
+                    "todoId": response[i].id        //store todo item's id
+                });
                 var deleteBtn = $("<button>",{
                     class: "deleteTodo btn",
                     text: "Delete"
@@ -44,8 +47,19 @@ function loadTodoList(){
                 li.append(todoDiv, deleteBtn, editBtn, todoDetails);
                 todoList.append(li);
             }
-            $("body").append(todoList);
+            var clearBtn = $("<button>",{
+                class: "clearTodo btn",
+                text: "Clear all completed items"
+            });
+            $("body").append(todoList, clearBtn);
             $(".todoDetails").hide();
+            $(".deleteTodo").click(function(){
+                var todoId = $(this).parent().attr("todoId");   //onclick, take the parent div's custom attribute value
+                setToDelete(todoId);
+            });
+            $(".clearTodo").click(function(){
+                deleteItem()
+            });
             $(".todoItem").click(function(){
                 $(this).parents("li").find(".todoDetails").slideToggle();
             });

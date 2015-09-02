@@ -38,6 +38,8 @@ $page_list = [
 
     <script src="pages/list_all_items.js"></script>
 
+    <script src="pages/delete_item.js"></script>
+
     <style>
         .log {
             padding: 0;
@@ -112,6 +114,10 @@ $page_list = [
 
         .create_button {
 
+        }
+
+        .deleted1{
+            text-decoration: line-through;
         }
 
     </style>
