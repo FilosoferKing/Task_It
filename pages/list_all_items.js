@@ -13,7 +13,8 @@ function loadTodoList(){
             console.log(response.length);
             for(i = 0; i < response.length; i++){
                 var li = $("<li>", {
-                    class: "todoContainer deleted" + response[i].deleted,
+                    class: "todoContainer deleted" + response[i].deleted + " completed" + response[i].status,
+                    "deleteStatus": response[i].deleted,
                     "todoId": response[i].id        //store todo item's id
                 });
                 var deleteBtn = $("<button>",{
@@ -55,7 +56,13 @@ function loadTodoList(){
             $(".todoDetails").hide();
             $(".deleteTodo").click(function(){
                 var todoId = $(this).parent().attr("todoId");   //onclick, take the parent div's custom attribute value
-                setToDelete(todoId);
+                var todoDeleted;
+                if ($(this).parent().attr("deleteStatus") == 0){ //toggles deleted status
+                    todoDeleted = 1;
+                } else {
+                    todoDeleted = 0;
+                }
+                setToDelete(todoId, todoDeleted);
             });
             $(".clearTodo").click(function(){
                 deleteItem()

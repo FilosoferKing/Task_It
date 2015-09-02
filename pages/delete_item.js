@@ -1,5 +1,8 @@
-function setToDelete(todoId){
-    var todoIdDelete = {id: todoId};
+function setToDelete(todoId, todoDeleted){
+    var todoIdDelete = {
+        id: todoId,
+        deleted: todoDeleted
+    };
     $.ajax({
         url: './pages/delete_item.php',
         method: 'POST',
