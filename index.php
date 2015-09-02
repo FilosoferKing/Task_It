@@ -116,29 +116,6 @@ $page_list = [
 
         $(document).ready(function(){
 
-
-                $.ajax({
-                    url: 'get_todo_items.json',
-                    dataType: 'json',
-                    method: "POST",
-                    success: function(response) {
-                        console.log(response);
-                        $('.list_item_container:nth-child(1) .item:nth-child(1) p:nth-child(1)').text(response[0].title);
-                        $('.list_item_container:nth-child(1) li:nth-child(1)').text(response[0].details);
-                        $('.list_item_container:nth-child(1) li:nth-child(2)').text(response[0].timeStamp);
-
-                        $('.list_item_container:nth-child(2) .item:nth-child(1) p:nth-child(1)').text(response[1].title);
-                        $('.list_item_container:nth-child(2) li:nth-child(1)').text(response[1].details);
-                        $('.list_item_container:nth-child(2) li:nth-child(2)').text(response[1].timeStamp);
-
-                        $('.list_item_container:nth-child(3) .item:nth-child(1) p:nth-child(1)').text(response[2].title);
-                        $('.list_item_container:nth-child(3) li:nth-child(1)').text(response[2].details);
-                        $('.list_item_container:nth-child(3) li:nth-child(2)').text(response[2].timeStamp);
-
-
-                    }
-                });
-
             function create_todo_item(){
                 var item_title = $('#item_title').val();
                 var item_due_date = $('#item_due_date').val();

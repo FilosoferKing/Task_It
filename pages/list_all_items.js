@@ -1,47 +1,55 @@
 function loadTodoList(userId){
-    console.log(userId);
     $.ajax({
-        dataType: 'json',
-        url: 'list_all_items.php',
-        data: 1,
+        url: './pages/list_all_items.php',
+        data: {id: userId},
         method: "POST",
-        crossDomain: true,
-        data: 1,
+        dataType: 'json',
+        cache: 'false',
         success: function(response){
-            console.log(userId);
             console.log(response);
-            //$(".todoList").html("");
-            //for (var i = 0; i < response.length; i++){
-            //    var li = $("<li>");
-            //    var deleteBtn = $("<button>",{
-            //        class: "deleteTodo btn",
-            //        text: "Delete"
-            //    });
-            //    var editBtn = $("<button>",{
-            //        class: "editTodo btn",
-            //        text: "Edit"
-            //    });
-            //    var todoSpan = $("<span>",{
-            //        text: response[i].title,
-            //        class: "todoItem"
-            //    });
-            //    var todoDetails = $("<div>",{
-            //        class: "todoDetails"
-            //    });
-            //    var pDetails = $("<p>", {
-            //        text: response[i].details
-            //    });
-            //    var pTimeStamp = $("<p>",{
-            //        text: response[i].timeStamp
-            //    });
-            //    todoDetails.append(pDetails, pTimeStamp);
-            //    li.append(todoSpan, deleteBtn, editBtn, todoDetails);
-            //    $(".todoList").append(li);
-            //}
-            //$(".todoDetails").hide();
-            //$(".todoList li").click(function(){
-            //    $(this).find(".todoDetails").stop().slideToggle();
-            //});
+            $(".todoList").remove();
+            var todoList = $("<div>", {
+                class: "todoList"
+            });
+            console.log(response.length);
+            for(i = 0; i < response.length; i++){
+                var li = $("<li>");
+                var deleteBtn = $("<button>",{
+                    class: "deleteTodo btn",
+                    text: "Delete"
+                });
+                var editBtn = $("<button>",{
+                    class: "editTodo btn",
+                    text: "Edit"
+                });
+                var todoDiv = $("<div>");
+                var todoSpan = $("<span>",{
+                    text: response[i]['title'],
+                    class: "todoItem"
+                });
+                var priority = $("<span>",{
+                    text: response[i].priority,
+                    class: "priority"
+                });
+                var todoDetails = $("<div>",{
+                    class: "todoDetails"
+                });
+                var pDetails = $("<p>", {
+                    text: response[i].details
+                });
+                var pTimeStamp = $("<p>",{
+                    text: response[i].due_date
+                });
+                todoDetails.append(pDetails, pTimeStamp);
+                todoDiv.append(todoSpan, priority);
+                li.append(todoDiv, deleteBtn, editBtn, todoDetails);
+                todoList.append(li);
+            }
+            $("body").append(todoList);
+            $(".todoDetails").hide();
+            $(".todoItem").click(function(){
+                $(this).parents("li").find(".todoDetails").slideToggle();
+            });
         },
         error: function(){
             console.log("No bueno");

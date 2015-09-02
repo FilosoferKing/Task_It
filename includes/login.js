@@ -25,7 +25,7 @@ function login(user_name, pass_word, url_page, url_target){
         success: function (response) {
             console.log("Login response: ", response);
             update_dom(url_page, url_target);
-            //loadTodoList(response.id);
+            loadTodoList(response.id);
         },
         error: function (response) {
             console.log(response);
@@ -61,6 +61,5 @@ function update_dom(url, target) {
         error: function (response) {
             console.log("Error: ", response);
         }
-
     });
 }
