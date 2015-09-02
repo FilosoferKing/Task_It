@@ -34,6 +34,8 @@ $page_list = [
 
     <script src="includes/view_create_input.js"></script>
 
+    <script src="includes/create.js"></script>
+
     <style>
         .log {
             padding: 0;
