@@ -9,7 +9,7 @@ session_start();
         <h1>TO DO LIST</h1>
     </div>
     <?php
-    if (empty($_SESSION['session_id'])) {
+    if (empty($_SESSION['id'])) {
     ?>
     <div class="col-xs-12 col-sm-4 col-sm-pull-4 input row">
         <div class="col-xs-12 col-sm-4 input">
@@ -44,7 +44,6 @@ session_start();
         </div>
     </header>
     <?php
-    //session_destroy();
 }
 ?>
 
