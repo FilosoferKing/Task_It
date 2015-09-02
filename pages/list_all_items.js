@@ -28,8 +28,10 @@ function loadTodoList(){
                 var todoDiv = $("<div>");
                 var completedCheck = $("<input>",{
                     type: "checkbox",
-                    class: "completed"
+                    class: "statusCheck",
+                    "checked": (response[i].status==1 ? "checked" : null)
                 });
+
                 var todoSpan = $("<span>",{
                     text: response[i]['title'],
                     class: "todoItem"
@@ -62,6 +64,17 @@ function loadTodoList(){
 
             $(".todoDetails").hide();
 
+            $(".statusCheck").click(function(){
+                var todoId = $(this).parents("li").attr("todoId");   //onclick, take the parent div's custom attribute value
+                var completeStatus;
+                if($(this).is(':checked')){
+                    completeStatus = 1
+                } else {
+                    completeStatus = 0;
+                }
+                setToCompleted(todoId, completeStatus);
+            });
+
             $(".deleteTodo").click(function(){
                 var todoId = $(this).parent().attr("todoId");   //onclick, take the parent div's custom attribute value
                 var todoDeleted;
@@ -74,7 +87,7 @@ function loadTodoList(){
             });
 
             $(".clearTodo").click(function(){
-                deleteItem()
+                deleteItem();
             });
 
             $(".todoItem").click(function(){

@@ -1,7 +1,7 @@
 $(document).ready(function () {
     console.log("Login Ready");
 
-    loadTodoList();
+    loadTodoList()
 
     $('.login_button').on('click', function () {
         var user_name = $('.username').val();
