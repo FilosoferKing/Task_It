@@ -1,6 +1,6 @@
 function loadTodoList(){
     $.ajax({
-        url: './pages/list_all_items.php',
+        url: 'pages/list_all_items.php',
         method: "GET",
         dataType: 'json',
         cache: 'false',
