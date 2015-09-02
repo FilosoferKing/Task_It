@@ -6,6 +6,7 @@ function logout(page, target){
         success: function(response){
             console.log(response);
             update_dom(page, target);
+            $(".todoList").remove();
         },
         error: function(){
             console.log("NO BUENO");

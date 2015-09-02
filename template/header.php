@@ -44,7 +44,6 @@ session_start();
         </div>
     </header>
     <?php
-    //session_destroy();
 }
 ?>
 

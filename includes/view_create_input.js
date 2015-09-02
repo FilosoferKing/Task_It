@@ -5,7 +5,7 @@ function view_list(){
         method: 'GET',
         success: function(response){
             console.log("Success view list: ", response);
-            $('.display').html(response);
+            $('.display').append(response);
             $('.create_button').on('click', function(){
                 var title = $('.item_title').val();
                 var due_date = $('.item_due_date').val();
