@@ -26,6 +26,10 @@ function loadTodoList(){
                     text: "Edit"
                 });
                 var todoDiv = $("<div>");
+                var completedCheck = $("<input>",{
+                    type: "checkbox",
+                    class: "completed"
+                });
                 var todoSpan = $("<span>",{
                     text: response[i]['title'],
                     class: "todoItem"
@@ -44,16 +48,20 @@ function loadTodoList(){
                     text: response[i].due_date
                 });
                 todoDetails.append(pDetails, pTimeStamp);
-                todoDiv.append(todoSpan, priority);
+                todoDiv.append(completedCheck, todoSpan, priority);
                 li.append(todoDiv, deleteBtn, editBtn, todoDetails);
                 todoList.append(li);
             }
+
             var clearBtn = $("<button>",{
                 class: "clearTodo btn",
                 text: "Clear all completed items"
             });
+
             $("body").append(todoList, clearBtn);
+
             $(".todoDetails").hide();
+
             $(".deleteTodo").click(function(){
                 var todoId = $(this).parent().attr("todoId");   //onclick, take the parent div's custom attribute value
                 var todoDeleted;
@@ -64,12 +72,15 @@ function loadTodoList(){
                 }
                 setToDelete(todoId, todoDeleted);
             });
+
             $(".clearTodo").click(function(){
                 deleteItem()
             });
+
             $(".todoItem").click(function(){
                 $(this).parents("li").find(".todoDetails").slideToggle();
             });
+
         },
         error: function(){
             console.log("No bueno");

@@ -116,6 +116,10 @@ $page_list = [
 
         }
 
+        .todoList li{
+            list-style: none;
+        }
+
         .deleted1{
             text-decoration: line-through;
         }
