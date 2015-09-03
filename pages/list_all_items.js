@@ -97,7 +97,7 @@ function loadTodoList(){
             $('.editTodo').on('click', function(){
                 console.log('Edit clicked');
                 var itemId = $(this).attr('id');
-                $(".todoDetails").slideToggle();
+                $("#" + itemId + " ~ .todoDetails").slideToggle();
                 edit_todo_item(itemId);
             });
         },
