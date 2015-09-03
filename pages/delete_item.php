@@ -7,7 +7,8 @@ require('../mysql_connect.php');
 
 if(isset($_POST[id])){
     $id = $_POST[id];
-    $query = "UPDATE `todo_items` SET `deleted` = 1 WHERE `id` = '$id'";
+    $deleted = $_POST[deleted];
+    $query = "UPDATE `todo_items` SET `deleted` = '$deleted' WHERE `id` = '$id'";
 } else {
     $query = "DELETE FROM `todo_items` WHERE `deleted` = 1";
 }

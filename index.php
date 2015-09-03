@@ -40,6 +40,8 @@ $page_list = [
 
     <script src="pages/delete_item.js"></script>
 
+    <script src="pages/completed_updated.js"></script>
+
     <style>
         .log {
             padding: 0;
@@ -109,11 +111,15 @@ $page_list = [
         }
 
         .create_item .input_container > .title {
-            padding: auto 15 px :
+            padding: auto 15px;
         }
 
         .create_button {
 
+        }
+
+        .todoList li{
+            list-style: none;
         }
 
         .deleted1{
