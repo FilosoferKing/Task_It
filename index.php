@@ -38,6 +38,12 @@ $page_list = [
 
     <script src="pages/list_all_items.js"></script>
 
+    <script src="pages/delete_item.js"></script>
+
+    <script src="includes/edit_todo_item.js"></script>
+
+    <script src="pages/completed_updated.js"></script>
+
     <style>
         .log {
             padding: 0;
@@ -107,11 +113,19 @@ $page_list = [
         }
 
         .create_item .input_container > .title {
-            padding: auto 15 px :
+            padding: auto 15px;
         }
 
         .create_button {
 
+        }
+
+        .todoList li{
+            list-style: none;
+        }
+
+        .deleted1{
+            text-decoration: line-through;
         }
 
     </style>

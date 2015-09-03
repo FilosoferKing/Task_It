@@ -11,10 +11,16 @@ if(isset($_SESSION[id])){
 
 $todo_output = [];
 
+$_POST[timestamp] = date("m-d-Y h:i A", strtotime($_POST[timestamp]));
+
 if(mysqli_num_rows($result) > 0){
     $i = 0;
     while($row = mysqli_fetch_assoc($result)){
         $todo_output[$i] = $row;
+        $todo_output[$i][created] = date("Y-m-d g:i:s a", strtotime($todo_output[$i]['created']));
+        $todo_output[$i][updated] = date("Y-m-d g:i:s a", strtotime($todo_output[$i]['updated']));
+        $todo_output[$i][due_date] = date("Y-m-d g:i:s a", strtotime($todo_output[$i]['due_date']));
+        $todo_output[$i][completed_datetime] = date("Y-m-d g:i:s a", strtotime($todo_output[$i]['completed_datetime']));
         $i++;
     }
 } else {
@@ -25,4 +31,4 @@ $output_string = json_encode($todo_output);
 
 print($output_string);
 
-?>git statu
+?>
