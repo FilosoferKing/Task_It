@@ -5,17 +5,17 @@ require("../mysql_connect.php");
 
 $title = $_POST['title'];
 $due_date = $_POST['due_date'];
+$priority = $_POST['priority'];
 $details = $_POST['details'];
 
-$query = "INSERT INTO todo_items (title, due_date, details)
-VALUES ('".$title."', '".$due_date."', '".$details."')";
+$query = "INSERT INTO `todo_items` (title, due_date, details, priority)
+VALUES ('".$title."', '".$due_date."', '".$details."', '".$priority."')";
 
-$_SESSION['query'] = $query;
+//$_SESSION['query'] = $query;
+//print_r($query);
 
 $result = mysqli_query($conn, $query);
 
-mysqli_affected_rows($conn);
-
-print(mysqli_affected_rows($conn));
+print_r(mysqli_affected_rows($conn));
 
 ?>

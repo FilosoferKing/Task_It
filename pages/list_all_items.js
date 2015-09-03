@@ -1,6 +1,6 @@
 function loadTodoList(){
     $.ajax({
-        url: './pages/list_all_items.php',
+        url: 'pages/list_all_items.php',
         method: "GET",
         dataType: 'json',
         cache: 'false',
@@ -22,6 +22,7 @@ function loadTodoList(){
                 });
                 var editBtn = $("<button>",{
                     class: "editTodo btn",
+                    id: response[i]['id'],
                     text: "Edit"
                 });
                 var todoDiv = $("<div>");
@@ -62,6 +63,12 @@ function loadTodoList(){
             });
             $(".todoItem").click(function(){
                 $(this).parents("li").find(".todoDetails").slideToggle();
+            });
+            $('.editTodo').on('click', function(){
+                console.log('Edit clicked');
+                var itemId = $(this).attr('id');
+                $(".todoDetails").slideToggle();
+                edit_todo_item(itemId);
             });
         },
         error: function(){

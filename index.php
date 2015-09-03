@@ -40,6 +40,8 @@ $page_list = [
 
     <script src="pages/delete_item.js"></script>
 
+    <script src="includes/edit_todo_item.js"></script>
+
     <style>
         .log {
             padding: 0;
