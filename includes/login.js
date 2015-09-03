@@ -1,6 +1,11 @@
 $(document).ready(function () {
     console.log("Login Ready");
 
+    $('.create').on('click', function(){
+        console.log("Worked");
+        view_list();
+    });
+
     loadTodoList();
 
     $('.login_button').on('click', function () {
@@ -49,7 +54,7 @@ function update_dom(url, target) {
             $(target).html(response);
 
             $('.create').on('click', function(){
-                console.log("worked");
+                console.log("Worked");
                 view_list();
             });
 

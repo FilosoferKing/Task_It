@@ -5,16 +5,18 @@ function view_list(){
         method: 'GET',
         success: function(response){
             console.log("Success view list: ", response);
-            $('.display').append(response);
+            $('body').append(response);
             $('.create_button').on('click', function(){
+                console.log("create button clicked");
                 var title = $('.item_title').val();
                 var due_date = $('.item_due_date').val();
                 var details = $('.item_details').val();
-                create_todo_item(title, due_date, details);
+                var priority = $('.item_priority').val();
+                create_todo_item(title, due_date, priority, details);
             })
         },
         error: function(response){
-            console.log("Success: ", response);
+            console.log("Error view list: ", response);
         }
     })
 

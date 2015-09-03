@@ -7,6 +7,9 @@
         <div class="col-xs-12 due_date">
             <input id="item_due_date" class="col-xs-12 item_due_date" type="text" name="due_date" placeholder="Due Date">
         </div>
+        <div class="col-xs-12 due_date">
+            <input id="item_priority" class="col-xs-12 item_priority" type="text" name="priority" placeholder="Priority: High/Medium/Low">
+        </div>
         <div class="col-xs-12 notes">
             <textarea id="item_details" class="col-xs-12 item_details" name="details" placeholder="Details"></textarea>
         </div>

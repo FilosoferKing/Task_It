@@ -38,6 +38,8 @@ $page_list = [
 
     <script src="pages/list_all_items.js"></script>
 
+    <script src="includes/edit_todo_item.js"></script>
+
     <style>
         .log {
             padding: 0;

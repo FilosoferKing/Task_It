@@ -19,6 +19,7 @@ function loadTodoList(){
                 });
                 var editBtn = $("<button>",{
                     class: "editTodo btn",
+                    id: response[i]['id'],
                     text: "Edit"
                 });
                 var todoDiv = $("<div>");
@@ -48,6 +49,12 @@ function loadTodoList(){
             $(".todoDetails").hide();
             $(".todoItem").click(function(){
                 $(this).parents("li").find(".todoDetails").slideToggle();
+            });
+            $('.editTodo').on('click', function(){
+                console.log('Edit clicked');
+                var itemId = $(this).attr('id');
+                $(".todoDetails").slideToggle();
+                edit_todo_item(itemId);
             });
         },
         error: function(){
