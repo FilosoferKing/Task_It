@@ -7,7 +7,7 @@ $title = $_POST['title'];
 $due_date = $_POST['due_date'];
 $details = $_POST['details'];
 
-$query = "INSERT INTO todo_items (title, due_date, details)
+$query = "INSERT INTO todo_items (title, due_date, details)https://github.com/chenh1/TDL
 VALUES ('".$title."', '".$due_date."', '".$details."')";
 
 $_SESSION['query'] = $query;
