@@ -13,7 +13,8 @@ function loadTodoList(){
             console.log(response.length);
             for(i = 0; i < response.length; i++){
                 var li = $("<li>", {
-                    class: "todoContainer deleted" + response[i].deleted,
+                    class: "todoContainer deleted" + response[i].deleted + " completed" + response[i].status,
+                    "deleteStatus": response[i].deleted,
                     "todoId": response[i].id        //store todo item's id
                 });
                 var deleteBtn = $("<button>",{
@@ -26,6 +27,12 @@ function loadTodoList(){
                     text: "Edit"
                 });
                 var todoDiv = $("<div>");
+                var completedCheck = $("<input>",{
+                    type: "checkbox",
+                    class: "statusCheck",
+                    "checked": (response[i].status==1 ? "checked" : null)
+                });
+
                 var todoSpan = $("<span>",{
                     text: response[i]['title'],
                     class: "todoItem"
@@ -44,23 +51,46 @@ function loadTodoList(){
                     text: response[i].due_date
                 });
                 todoDetails.append(pDetails, pTimeStamp);
-                todoDiv.append(todoSpan, priority);
+                todoDiv.append(completedCheck, todoSpan, priority);
                 li.append(todoDiv, deleteBtn, editBtn, todoDetails);
                 todoList.append(li);
             }
+
             var clearBtn = $("<button>",{
                 class: "clearTodo btn",
                 text: "Clear all completed items"
             });
+
             $("body").append(todoList, clearBtn);
+
             $(".todoDetails").hide();
+
+            $(".statusCheck").click(function(){
+                var todoId = $(this).parents("li").attr("todoId");   //onclick, take the parent div's custom attribute value
+                var completeStatus;
+                if($(this).is(':checked')){
+                    completeStatus = 1
+                } else {
+                    completeStatus = 0;
+                }
+                setToCompleted(todoId, completeStatus);
+            });
+
             $(".deleteTodo").click(function(){
                 var todoId = $(this).parent().attr("todoId");   //onclick, take the parent div's custom attribute value
-                setToDelete(todoId);
+                var todoDeleted;
+                if ($(this).parent().attr("deleteStatus") == 0){ //toggles deleted status
+                    todoDeleted = 1;
+                } else {
+                    todoDeleted = 0;
+                }
+                setToDelete(todoId, todoDeleted);
             });
+
             $(".clearTodo").click(function(){
-                deleteItem()
+                deleteItem();
             });
+
             $(".todoItem").click(function(){
                 $(this).parents("li").find(".todoDetails").slideToggle();
             });
