@@ -44,6 +44,10 @@ $page_list = [
 
     <script src="pages/completed_updated.js"></script>
 
+    <script src="includes/get_users.js"></script>
+
+    <script src="includes/assign_user.js"></script>
+
     <style>
         .log {
             padding: 0;
@@ -166,6 +170,10 @@ $page_list = [
     //include($page_list['display_item']);
     //include($page_list['footer']);
     ?>
+
+    <users>
+
+    </users>
 </div>
 
 </body>
