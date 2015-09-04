@@ -7,7 +7,7 @@ $username = $_POST['username'];
 $password = sha1($_POST['password']);
 
 
-$query = "SELECT id, username, email FROM `users` WHERE `username` = '".$username."' AND password = '".$password."'";
+$query = "SELECT id, username, email, friends FROM `users` WHERE `username` = '".$username."' AND password = '".$password."'";
 
 $result = mysqli_query($conn, $query);
 
@@ -18,6 +18,7 @@ if(mysqli_num_rows($result) > 0){
         $user_output['id'] = $row['id'];
         $user_output['username'] = $row['username'];
         $user_output['email'] = $row['email'];
+        $user_output['friends'] = explode(",",$row['friends']);
         $_SESSION = $user_output;
     }
 } else {

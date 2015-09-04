@@ -27,17 +27,28 @@ session_start();
 } else {
     ?>
     <header class="col-xs-12 logged_in">
-        <div class="col-xs-4 col-sm-4 view">
+        <div class="col-xs-3 col-sm-3 view">
             <div class="col-xs-12 view_text">
                 <h2>View</h2>
             </div>
         </div>
-        <div class="col-xs-4 col-sm-4 create">
+        <div class="col-xs-3 col-sm-3 create">
             <div class="col-xs-12 create_text">
                 <h2>Create</h2>
             </div>
         </div>
-        <div class="col-xs-4 col-sm-4 logout" data_url="template/header.php" data_target="#top_nav">
+        <div class="col-xs-3 col-sm-3 friends">
+            <div class="col-xs-12 friends_text">
+                <h2>Friends</h2>
+            </div>
+            <div class = "col-xs-12 friendsListContainer">
+                <input class = "addFriend" type = "text" placeholder="Enter friend's email">
+                <button class = "addFriendBtn" type = "button">Add friend</button>
+                <ul class = "friendsList">
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-3 col-sm-3 logout" data_url="template/header.php" data_target="#top_nav">
             <div class="col-xs-12 logout_text">
                 <h2>Logout</h2>
             </div>

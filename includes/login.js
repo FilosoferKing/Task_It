@@ -7,6 +7,10 @@ $(document).ready(function () {
     });
 
     loadTodoList();
+    view_friends();
+    $(".friends_text").on('click', function(){
+        $(".friendsListContainer").slideToggle();
+    });
 
     $('.login_button').on('click', function () {
         var user_name = $('.username').val();
@@ -34,7 +38,8 @@ function login(user_name, pass_word, url_page, url_target){
         cache: false,
         success: function (response) {
             console.log("Login response: ", response);
-            update_dom(url_page, url_target);
+            console.log(response.friends);
+            update_dom(url_page, url_target, response.friends);
             loadTodoList(response.id);
         },
         error: function (response) {
@@ -43,7 +48,7 @@ function login(user_name, pass_word, url_page, url_target){
     });
 }
 
-function update_dom(url, target) {
+function update_dom(url, target, friends) {
     console.log(url, target);
     $.ajax({
         url: url,
@@ -54,8 +59,12 @@ function update_dom(url, target) {
             $(target).html(response);
 
             $('.create').on('click', function(){
-                console.log("Worked");
                 view_list();
+            });
+
+            view_friends();
+            $(".friends_text").on('click', function(){
+                $(".friendsListContainer").slideToggle();
             });
 
             $(".logout").click(function(){

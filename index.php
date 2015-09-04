@@ -44,6 +44,8 @@ $page_list = [
 
     <script src="pages/completed_updated.js"></script>
 
+    <script src="includes/view_friends.js"></script>
+
     <style>
         .log {
             padding: 0;
