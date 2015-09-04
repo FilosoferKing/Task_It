@@ -3,7 +3,7 @@ function assign_user(id, assignee){
     $.ajax({
         url: 'includes/assign_user.php',
         data: {post_id: id, assignee_id: assignee},
-        method: 'POST',
+        method: 'post',
         dataType: 'text',
         success: function(response){
             console.log("Assigned: ", response);
