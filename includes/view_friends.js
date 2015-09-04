@@ -9,8 +9,9 @@ function view_friends(){
             for (var i = 0; i < response.length; i++) {
                 var friendLi = $("<li>", {
                     class: "friend",
-                    id: "friend" + response[i],
-                    text: response[i].username
+                    id: "friend" + i,
+                    text: response[i].username,
+                    "friend_num": response[i].id
                 });
                 var friendEmail = $("<p>", {
                     text: response[i].email

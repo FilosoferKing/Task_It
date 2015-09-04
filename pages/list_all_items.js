@@ -26,6 +26,22 @@ function loadTodoList(){
                     id: response[i]['id'],
                     text: "Edit"
                 });
+                var assignBtn = $("<button>",{
+                    class: "assignTodo btn",
+                    id: "assign" + response[i]['id'],
+                    "btn_assign_num": response[i]['id']
+                });
+                var assign_container = $("<div>", {
+                    class: "assign_container",
+                    id: "assign_container" + response[i]['id']
+                })
+                var assignUl = $("<ul>", {
+                    class: "friendsList",
+                    "todo_num": response[i]['id']
+                });
+                $(".friendsList li").each(function(){
+                    assignUl.append(this);
+                });
                 var todoDiv = $("<div>");
                 var completedCheck = $("<input>",{
                     type: "checkbox",
@@ -52,7 +68,8 @@ function loadTodoList(){
                 });
                 todoDetails.append(pDetails, pTimeStamp);
                 todoDiv.append(completedCheck, todoSpan, priority);
-                li.append(todoDiv, deleteBtn, editBtn, todoDetails);
+                assign_container.append(assignUl);
+                li.append(todoDiv, deleteBtn, editBtn, assignBtn, assign_container, todoDetails);
                 todoList.append(li);
             }
 
@@ -62,6 +79,7 @@ function loadTodoList(){
             });
 
             $("body").append(todoList, clearBtn);
+            $(".assign_container").hide();
 
             $(".todoDetails").hide();
 
@@ -99,6 +117,21 @@ function loadTodoList(){
                 var itemId = $(this).attr('id');
                 $("#" + itemId + " ~ .todoDetails").slideToggle();
                 edit_todo_item(itemId);
+            });
+
+            $(".assignTodo").on('click', function(){
+                console.log("Assign clicked");
+                var btn_assign_num = $(this).attr("btn_assign_num");
+                $("#assign_container" + btn_assign_num).slideToggle();
+            });
+
+            $(".friendsList").on("click", ".friend", function(){
+                console.log("Friend assigned");
+                var todo_num = $(this).parent().attr("todo_num");
+                var assignee_num = $(this).attr("friend_num");
+                console.log("todo id: ", todo_num);
+                console.log("assignee id: ", assignee_num);
+                assign_user(todo_num, assignee_num);
             });
         },
         error: function(){

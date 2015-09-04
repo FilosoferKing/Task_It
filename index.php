@@ -46,8 +46,6 @@ $page_list = [
 
     <script src="includes/view_friends.js"></script>
 
-    <script src="includes/get_users.js"></script>
-
     <script src="includes/assign_user.js"></script>
 
     <style>
