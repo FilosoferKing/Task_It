@@ -6,12 +6,12 @@ session_start();
 
 <header class="col-xs-12 container log row">
     <div class="col-xs-12 col-sm-4 col-sm-push-4 header_title">
-        <h1>TO DO LIST</h1>
+        <img src="img/taskitalt.png" id="taskit" alt="Task It">
     </div>
     <?php
     if (empty($_SESSION['id'])) {
     ?>
-    <div class="col-xs-12 col-sm-4 col-sm-pull-4 input row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-pull-1 input_div row">
         <div class="col-xs-12 col-sm-4 input">
             <input class="col-xs-12 username" type="text" name="username" placeholder="Username">
         </div>

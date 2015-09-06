@@ -13,6 +13,8 @@ $result = mysqli_query($conn, $query);
 
 $user_output = [];
 
+
+
 if(mysqli_num_rows($result) > 0){
     while($row = mysqli_fetch_assoc($result)){
         $user_output['id'] = $row['id'];

@@ -1,0 +1,69 @@
+body {
+    height: 100vh;
+    background: #000 url("img/trevorhandwide.jpg") no-repeat 50% 50%;
+    background-size: cover;
+
+}
+
+body::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: '';
+}
+
+
+#top_nav, .log {
+    height: 100vh;
+    position: relative;
+}
+
+.username {
+    position: relative;
+    height: 40px;
+    border: 2px solid #638699;
+    border-radius: 10px;
+    margin-bottom: 2vh;
+    box-shadow: 0 0 5px 1px #646890 inset;
+}
+
+.password {
+    position: relative;
+    height: 40px;
+    border: 2px solid #638699;
+    border-radius: 10px;
+    margin-top: 2vh;
+    box-shadow: 0 0 5px 1px #646890 inset;
+}
+
+.input_div {
+    position: relative;
+    top: 60%;
+    transform: translateY(-50%);
+}
+
+.input {
+    width: 100%;
+    padding: 0;
+}
+
+.login_button {
+    position: relative;
+    margin-top: 30vh;
+    height: 40px;
+    width: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    border-radius: 10px;
+    background-color: #638699;
+    color: #fff;
+    opacity: .75;
+}
+
+#taskit {
+    margin-top: 6vh;
+    width: 75%;
+}

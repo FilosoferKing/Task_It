@@ -48,6 +48,10 @@ $page_list = [
 
     <script src="includes/assign_user.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="login.css">
+
+    <link rel="stylesheet" type="text/css" href="loginquery.css">
+
     <style>
         .log {
             padding: 0;

@@ -7,6 +7,7 @@ function logout(page, target){
             console.log(response);
             update_dom(page, target);
             $(".todoList").remove();
+            $(".clearTodo").remove();
         },
         error: function(){
             console.log("NO BUENO");
