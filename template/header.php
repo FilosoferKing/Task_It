@@ -28,7 +28,7 @@ session_start();
 } else {
     ?>
     <header class="col-xs-12 logged_in">
-        <div class="col-sm-12 firstHeader">
+        <div class="col-sm-12 firstHeader row">
             <div class="col-xs-12 col-sm-3 header_title">
                 <img src="img/taskitalt.png" id="taskithead" alt="Task It">
             </div>
@@ -42,7 +42,7 @@ session_start();
             <div class="col-xs-12 friends_text">
                 <h2>Friends</h2>
             </div>
-            <div class="col-xs-12 col-sm-3 friendsListContainer">
+            <div class="col-xs-12 col-sm-12 friendsListContainer">
                 <input class="addFriend" type="text" placeholder="Enter friend's email">
                 <button class="addFriendBtn" type="button">Add friend</button>
                 <ul class="friendsList">
@@ -51,12 +51,22 @@ session_start();
         </div>
         <div class="col-xs-3 col-sm-6 view">
             <div class="col-xs-12 view_text">
-                <h2>View</h2>
+                <h2>Task List</h2>
+            </div>
+            <div class="col-xs-12 view_titles">
+                <h4 class="col-sm-1">Delete</h4>
+                <h4 class="col-sm-1">Edit</h4>
+                <h4 class="col-sm-2">Complete</h4>
+                <h4 class="col-sm-4">Task</h4>
+                <h4 class="col-sm-2">Priority</h4>
             </div>
         </div>
         <div class="col-xs-3 col-sm-3 create">
             <div class="col-xs-12 create_text">
                 <h2>Create</h2>
+            </div>
+            <div class="col-xs-12 create_title">
+                <h4>Create New Task</h4>
             </div>
         </div>
     </header>

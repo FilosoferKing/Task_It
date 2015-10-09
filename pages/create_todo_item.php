@@ -16,7 +16,7 @@
                 <textarea id="item_details" class="col-xs-12 item_details" name="details"
                           placeholder="Details"></textarea>
             </div>
-            <button class="col-xs-12 create_button col-sm-4" type="button" name="login">Create</button>
+            <button class="col-xs-12 create_button col-sm-4 col-sm-offset-2" type="button" name="login">Create</button>
             <button class="col-xs-12 cancel_button col-sm-4" type="button" name="cancel">Cancel</button>
         </form>
     </div>

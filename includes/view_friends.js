@@ -16,7 +16,7 @@ function view_friends(){
                 var friendEmail = $("<p>", {
                     text: response[i].email
                 })
-                friendLi.append(friendEmail);
+                //friendLi.append(friendEmail);
                 $(".friendsList").append(friendLi);
             }
             $(".friendsListContainer").show();

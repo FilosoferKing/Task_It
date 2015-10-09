@@ -52,7 +52,7 @@ function loadTodoList(){
 
                 var todoSpan = $("<span>",{
                     text: response[i]['title'],
-                    class: "col-xs-7 todoItem"
+                    class: "col-xs-6 todoItem"
                 });
                 var priority = $("<span>",{
                     text: response[i].priority,
