@@ -28,6 +28,8 @@ $page_list = [
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+    <!--Javascript Files-->
+
     <script src="includes/login.js"></script>
 
     <script src="includes/logout.js"></script>
@@ -50,91 +52,12 @@ $page_list = [
 
     <link rel="stylesheet" type="text/css" href="login.css">
 
+    <link rel="stylesheet" type="text/css" href="style.css">
+
     <link rel="stylesheet" type="text/css" href="loginquery.css">
 
     <style>
-        .log {
-            padding: 0;
-            margin: 0;
-        }
 
-        .log h1 {
-            text-align: center;
-        }
-
-        .log .input {
-            margin: 0 auto;
-        }
-
-        .log {
-            padding: 0;
-        }
-
-        .header_title {
-            text-align: center;
-        }
-
-        .view, .create, .logout {
-            padding: 0;
-            text-align: center;
-        }
-
-        .view_text, .create_text, .logout_text {
-            padding: 0;
-        }
-
-        .list_item_container {
-            padding: 0;
-        }
-
-        .item {
-            padding: 0;
-        }
-
-        .dropdown {
-            position: relative;
-            padding: 0;
-        }
-
-        .dropdown ul {
-            width: 100%;
-            padding: 0;
-        }
-
-        .dropdown button {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-        }
-
-        .create_item {
-            padding: 0;
-        }
-
-        .input_container {
-            padding: 0;
-        }
-
-        .title, .due_date, .notes {
-
-        }
-
-        .create_item .input_container > .title {
-            padding: auto 15px;
-        }
-
-        .create_button {
-
-        }
-
-        .todoList li{
-            list-style: none;
-        }
-
-        .deleted1{
-            text-decoration: line-through;
-        }
 
     </style>
 

@@ -8,31 +8,32 @@ function loadTodoList(){
             console.log(response);
             $(".todoList, .clearTodo").remove();
             var todoList = $("<div>", {
-                class: "todoList"
+                class: "col-xs-12 col-sm-12 todoList"
             });
             console.log(response.length);
             for(i = 0; i < response.length; i++){
                 var li = $("<li>", {
-                    class: "todoContainer deleted" + response[i].deleted + " completed" + response[i].status,
+                    class: "col-xs-12 todoContainer deleted" + response[i].deleted + " completed" + response[i].status,
                     "deleteStatus": response[i].deleted,
                     "todoId": response[i].id        //store todo item's id
                 });
                 var deleteBtn = $("<button>",{
-                    class: "deleteTodo btn",
+                    class: "col-sm-1 deleteTodo btn",
                     text: "Delete"
                 });
                 var editBtn = $("<button>",{
-                    class: "editTodo btn",
+                    class: "col-sm-1 editTodo btn",
                     id: response[i]['id'],
                     text: "Edit"
                 });
                 var assignBtn = $("<button>",{
                     class: "assignTodo btn",
                     id: "assign" + response[i]['id'],
-                    "btn_assign_num": response[i]['id']
+                    "btn_assign_num": response[i]['id'],
+                    text: 'Assign task'
                 });
                 var assign_container = $("<div>", {
-                    class: "assign_container",
+                    class: " col-xs-12 assign_container",
                     id: "assign_container" + response[i]['id']
                 })
                 var assignUl = $("<ul>", {
@@ -45,20 +46,20 @@ function loadTodoList(){
                 var todoDiv = $("<div>");
                 var completedCheck = $("<input>",{
                     type: "checkbox",
-                    class: "statusCheck",
+                    class: " col-sm-1 statusCheck",
                     "checked": (response[i].status==1 ? "checked" : null)
                 });
 
                 var todoSpan = $("<span>",{
                     text: response[i]['title'],
-                    class: "todoItem"
+                    class: "col-xs-7 todoItem"
                 });
                 var priority = $("<span>",{
                     text: response[i].priority,
-                    class: "priority"
+                    class: "col-xs-2 priority"
                 });
                 var todoDetails = $("<div>",{
-                    class: "todoDetails"
+                    class: "col-sm-12 todoDetails"
                 });
                 var pDetails = $("<p>", {
                     text: response[i].details
@@ -66,19 +67,21 @@ function loadTodoList(){
                 var pTimeStamp = $("<p>",{
                     text: response[i].due_date
                 });
-                todoDetails.append(pDetails, pTimeStamp);
+                todoDetails.append(pDetails, pTimeStamp, assignBtn);
                 todoDiv.append(completedCheck, todoSpan, priority);
                 assign_container.append(assignUl);
-                li.append(todoDiv, deleteBtn, editBtn, assignBtn, assign_container, todoDetails);
+                li.append(deleteBtn, editBtn, todoDiv, todoDetails, assign_container);
                 todoList.append(li);
+                $('.view').append(todoList);
             }
+
 
             var clearBtn = $("<button>",{
                 class: "clearTodo btn",
                 text: "Clear all completed items"
             });
 
-            $("body").append(todoList, clearBtn);
+            $(".view").append(clearBtn);
             $(".assign_container").hide();
 
             $(".todoDetails").hide();
@@ -133,6 +136,8 @@ function loadTodoList(){
                 console.log("assignee id: ", assignee_num);
                 assign_user(todo_num, assignee_num);
             });
+
+
         },
         error: function(){
             console.log("No bueno");

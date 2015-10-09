@@ -38,7 +38,7 @@ function edit_todo_item(itemId) {
     $("#" + itemId + ' ~ .todoDetails p:nth-child(2)').html(details_input);
 
     var update_button = $('<button>', {
-        class: 'updateTodo btn',
+        class: 'col-sm-1 updateTodo btn',
         id: itemId,
         text: 'Update'
     });
@@ -50,9 +50,11 @@ function edit_todo_item(itemId) {
         var itemId = $(this).attr('id');
         var title_text = $("#" + itemId).parents("li").find(".item_title").val();
         var due_date_text = $("#" + itemId).parents("li").find('.item_due_date').val();
-        var priority_text = $("#" + itemId + ' ~ .item_priority').val();
-        var details_text = $("#" + itemId + ' ~ .item_details').val();
+        var priority_text = $('.item_priority').val();
+        var details_text = $('.item_details').val();
+        console.log("update data priority:", priority_text, details_text);
         update_data(itemId, title_text, due_date_text, priority_text, details_text);
+
     });
 
     $("#" + itemId).parents("li").find('.editTodo').remove();
@@ -76,7 +78,7 @@ function update_data(itemId, title_text, due_date_text, priority_text, details_t
             console.log("Update edit: ", response);
 
             var edit_button = $('<button>', {
-                class: 'editTodo btn',
+                class: 'col-sm-1 editTodo btn',
                 id: itemId,
                 text: 'Edit'
             });

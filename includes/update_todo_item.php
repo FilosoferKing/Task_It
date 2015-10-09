@@ -16,6 +16,8 @@ WHERE user_id = '".$userId."' AND id = '".$id."'";
 
 $result = mysqli_query($conn, $query);
 
+print($query);
+
 print_r(mysqli_affected_rows($conn));
 
 ?>

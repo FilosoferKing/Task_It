@@ -19,7 +19,7 @@ function view_friends(){
                 friendLi.append(friendEmail);
                 $(".friendsList").append(friendLi);
             }
-            $(".friendsListContainer").hide();
+            $(".friendsListContainer").show();
             $(".addFriendBtn").click(function(){
                 add_friend($(".addFriend").val());
             });
