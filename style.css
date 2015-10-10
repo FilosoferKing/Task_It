@@ -6,6 +6,14 @@ body {
     color: #fff;
 }
 
+button {
+    outline: none;
+}
+
+.logged_in {
+    padding: 0;
+}
+
 .log {
     padding: 0;
     margin: 0;
@@ -94,6 +102,7 @@ body {
 .todoList li{
     list-style: none;
     background-color: rgba(0, 0, 0, .25);
+    border: 1px solid #151800;
     border-radius: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -122,6 +131,7 @@ input[type=checkbox] {
     border: none;
     border-radius: 5px;
     margin-right: 5px;
+    outline: none;
 }
 
 .editTodo {
@@ -129,6 +139,15 @@ input[type=checkbox] {
     color: #fff;
     border: none;
     border-radius: 5px;
+    outline: none;
+}
+
+.updateTodo {
+    background-color: rgba(99, 134, 153, .9);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    outline: none;
 }
 
 #taskithead {
@@ -141,7 +160,8 @@ input[type=checkbox] {
 
 /*******************Header*******************/
 .firstHeader {
-    background-color: rgba(0, 0, 0, .25);
+    background-color: #fff;
+    padding: 0;
 }
 
 #taskit {
@@ -163,4 +183,12 @@ input {
 
 textarea {
     height: 80px;
+}
+
+.create_button, .cancel_button {
+    height: 35px;
+    margin-right: 5px;
+    background-color: rgba(99, 134, 153, .9);
+    border: none;
+    border-radius: 5px;
 }
