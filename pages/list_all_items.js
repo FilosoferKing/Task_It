@@ -1,3 +1,5 @@
+var assignVisible = false;
+
 function loadTodoList(){
     $.ajax({
         url: 'pages/list_all_items.php',
@@ -113,6 +115,13 @@ function loadTodoList(){
                 setToDelete(todoId, todoDeleted);
             });
 
+            $('.editTodo').on('click', function(){
+                console.log('Edit clicked');
+                var itemId = $(this).attr('id');
+                $("#" + itemId + " ~ .todoDetails").slideToggle();
+                edit_todo_item(itemId);
+            });
+
             $(".clearTodo").click(function(){
                 deleteItem();
             });
@@ -123,19 +132,26 @@ function loadTodoList(){
                     $(this).text('Less');
                 } else {
                     $(this).text('More');
+                    if(assignVisible == true) {
+                        var btn_assign_num = $(this).parents("li").find(".assignTodo").attr("btn_assign_num");
+                        $("#assign_container" + btn_assign_num).slideToggle();
+                        assignVisible = false;
+                    }
                 }
-            });
-            $('.editTodo').on('click', function(){
-                console.log('Edit clicked');
-                var itemId = $(this).attr('id');
-                $("#" + itemId + " ~ .todoDetails").slideToggle();
-                edit_todo_item(itemId);
             });
 
             $(".assignTodo").on('click', function(){
-                console.log("Assign clicked");
-                var btn_assign_num = $(this).attr("btn_assign_num");
-                $("#assign_container" + btn_assign_num).slideToggle();
+                if (assignVisible === false) {
+                    assignVisible = true;
+                    console.log("Assign clicked");
+                    var btn_assign_num = $(this).attr("btn_assign_num");
+                    $("#assign_container" + btn_assign_num).slideToggle();
+                } else if (assignVisible == true) {
+                    var btn_assign_num = $(this).attr("btn_assign_num");
+                    $("#assign_container" + btn_assign_num).slideToggle();
+                    assignVisible = false;
+                }
+
             });
 
             $(".friendsList").on("click", ".friend", function(){
