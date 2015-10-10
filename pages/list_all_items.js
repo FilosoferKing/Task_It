@@ -26,6 +26,11 @@ function loadTodoList(){
                     id: response[i]['id'],
                     text: "Edit"
                 });
+                var moreBtn = $("<button>",{
+                    class: "col-sm-1 moreTodo btn",
+                    id: response[i]['id'],
+                    text: "More"
+                });
                 var assignBtn = $("<button>",{
                     class: "assignTodo btn",
                     id: "assign" + response[i]['id'],
@@ -52,7 +57,7 @@ function loadTodoList(){
 
                 var todoSpan = $("<span>",{
                     text: response[i]['title'],
-                    class: "col-xs-6 todoItem"
+                    class: "col-xs-5 todoItem"
                 });
                 var priority = $("<span>",{
                     text: response[i].priority,
@@ -68,7 +73,7 @@ function loadTodoList(){
                     text: response[i].due_date
                 });
                 todoDetails.append(pDetails, pTimeStamp, assignBtn);
-                todoDiv.append(completedCheck, todoSpan, priority);
+                todoDiv.append(completedCheck, todoSpan, priority, moreBtn);
                 assign_container.append(assignUl);
                 li.append(deleteBtn, editBtn, todoDiv, todoDetails, assign_container);
                 todoList.append(li);
@@ -112,8 +117,13 @@ function loadTodoList(){
                 deleteItem();
             });
 
-            $(".todoItem").click(function(){
+            $(".moreTodo").click(function(){
                 $(this).parents("li").find(".todoDetails").slideToggle();
+                if($(this).text() == "More") {
+                    $(this).text('Less');
+                } else {
+                    $(this).text('More');
+                }
             });
             $('.editTodo').on('click', function(){
                 console.log('Edit clicked');

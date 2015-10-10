@@ -1,9 +1,15 @@
 body {
     height: 100vh;
-    #background-color: #fff;
-    background: #000 url("img/tdlbg.jpg") no-repeat 50% 50%;
-    background-size: cover;
+    #background: #000 url("img/tdlbg.jpg") no-repeat 50% 50%;
+    #background-size: cover;
     color: #fff;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: script;
+    src: url('img/ThrowMyHandsUpintheAir.ttf');
 }
 
 button {
@@ -35,7 +41,7 @@ button {
     text-align: center;
 }
 
-.view, .create, .logout {
+.view, .friends, .create, .logout {
     padding: 0;
     text-align: center;
 }
@@ -142,7 +148,7 @@ input[type=checkbox] {
     outline: none;
 }
 
-.updateTodo {
+.updateTodo, .clearTodo, .addFriendBtn, .assignTodo, .moreTodo {
     background-color: rgba(99, 134, 153, .9);
     color: #fff;
     border: none;
@@ -150,14 +156,15 @@ input[type=checkbox] {
     outline: none;
 }
 
-#taskithead {
-    height: 75px;
-}
-
-.view_titles h4, .create_title h4 {
+.view_titles p, .create_title p {
     text-align: center;
+    font-size: .75vw;
 }
 
+.logged_in h2 {
+    font-family: script;
+    font-size: 1.75vw;
+}
 /*******************Header*******************/
 .firstHeader {
     background-color: #638699;
@@ -168,6 +175,20 @@ input[type=checkbox] {
 #taskit {
     margin-top: 6vh;
     width: 75%;
+}
+
+.header_title {
+    position: relative;
+}
+
+#taskithead {
+    height: 50px;
+
+}
+
+.logout_text h2 {
+    font-size: 1vw;
+    text-align: center;
 }
 
 /*************Create Form**************/
