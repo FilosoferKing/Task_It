@@ -11,7 +11,7 @@ function setToDelete(todoId, todoDeleted){
         data: todoIdDelete,
         success: function(response){
             console.log(response, " rows affected");
-            loadTodoList();
+            //loadTodoList();
         },
         error: function(){
             console.log("Don work");

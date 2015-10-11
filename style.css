@@ -214,3 +214,13 @@ textarea {
     border: none;
     border-radius: 5px;
 }
+
+/*******************Friends*******************/
+.friendsList li {
+    list-style-type: none;
+    text-align: center;
+    background-color: rgba(21, 24, 0, .25);
+    border: 1px solid #151800;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}

@@ -85,7 +85,7 @@ function loadTodoList(){
 
             var clearBtn = $("<button>",{
                 class: "clearTodo btn",
-                text: "Clear all completed items"
+                text: "Delete tasks set for deletion"
             });
 
             $(".view").append(clearBtn);
@@ -105,14 +105,24 @@ function loadTodoList(){
             });
 
             $(".deleteTodo").click(function(){
-                var todoId = $(this).parent().attr("todoId");   //onclick, take the parent div's custom attribute value
                 var todoDeleted;
-                if ($(this).parent().attr("deleteStatus") == 0){ //toggles deleted status
-                    todoDeleted = 1;
-                } else {
-                    todoDeleted = 0;
-                }
-                setToDelete(todoId, todoDeleted);
+                var todoId = $(this).parent().attr("todoId");  //onclick, take the parent div's custom attribute value
+                if ($(this).parent().attr("deleteStatus") == 0) {
+                        console.log('Delete clicked');
+                        todoDeleted = 1;
+                        setToDelete(todoId, todoDeleted);
+                        $(this).text('Undo');
+                        $(this).parent().attr("deleteStatus", "1");
+
+                    } else if ($(this).parent().attr("deleteStatus") == 1) {
+                        console.log('Undo clicked');//onclick, take the parent div's custom attribute value
+                        todoDeleted = 0;
+                        setToDelete(todoId, todoDeleted);
+                        $(this).text('Delete');
+                        $(this).parent().attr("deleteStatus", "0");
+
+                    }
+
             });
 
             $('.editTodo').on('click', function(){
