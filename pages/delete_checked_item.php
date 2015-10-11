@@ -10,7 +10,7 @@ if(isset($_POST[id])){
     $deleted = $_POST[deleted];
     $query = "UPDATE `todo_items` SET `deleted` = '$deleted' WHERE `id` = '$id'";
 } else {
-    $query = "DELETE FROM `todo_items` WHERE `deleted` = 1 AND `status` = 0";
+    $query = "DELETE FROM `todo_items` WHERE `deleted` = 1 AND `status` = 1";
 }
 
 $result = mysqli_query($conn, $query);

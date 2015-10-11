@@ -4,7 +4,9 @@ $(document).ready(function () {
     view_list();
 
     loadTodoList();
+
     view_friends();
+
     $(".friends_text").on('click', function(){
         $(".friendsListContainer").slideToggle();
     });
@@ -58,6 +60,7 @@ function update_dom(url, target, friends) {
             view_list();
 
             view_friends();
+
             $(".friends_text").on('click', function(){
                 $(".friendsListContainer").slideToggle();
             });

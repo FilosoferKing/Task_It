@@ -8,7 +8,7 @@ function loadTodoList(){
         cache: 'false',
         success: function(response){
             console.log(response);
-            $(".todoList, .clearTodo").remove();
+            $(".todoList, .clearTodo, .deleteSelectedTodo").remove();
             var todoList = $("<div>", {
                 class: "col-xs-12 col-sm-12 todoList"
             });
@@ -82,27 +82,38 @@ function loadTodoList(){
                 $('.view').append(todoList);
             }
 
-
             var clearBtn = $("<button>",{
                 class: "clearTodo btn",
-                text: "Delete tasks set for deletion"
+                text: "Remove completed tasks"
             });
 
-            $(".view").append(clearBtn);
+            var deleteSelectedBtn = $("<button>",{
+                class: "deleteSelectedTodo btn",
+                text: "Remove deleted tasks"
+            });
+
+            $(deleteSelectedBtn).insertAfter(".todoList");
+            $(clearBtn).insertAfter(".todoList");
+
             $(".assign_container").hide();
 
             $(".todoDetails").hide();
 
             $(".statusCheck").click(function(){
                 var todoId = $(this).parents("li").attr("todoId");   //onclick, take the parent div's custom attribute value
+                var todoDeleted;
                 var completeStatus;
                 if($(this).is(':checked')){
-                    completeStatus = 1
-                    $(this).parents("li").children("div").children("span, p").css({'text-decoration': 'line-through', 'color': '#919191'});
-                    $(this).parents("li").children("button").css({'background-color': '#626262',  'color': '#919191'});
-                    $(this).parents("li").children("div").children("button").css({'background-color': '#626262',  'color': '#919191'});
+                    completeStatus = 1;
+                    todoDeleted = 1;
+                    setToDelete(todoId, todoDeleted);
+                    $(this).parents("li").children("div").children("span, p").css({'text-decoration': 'line-through', 'color': '#828282'});
+                    $(this).parents("li").children("button").css({'background-color': '#343434',  'color': '#4C4C4C'});
+                    $(this).parents("li").children("div").children("button").css({'background-color': '#343434',  'color': '#4C4C4C'});
                 } else {
                     completeStatus = 0;
+                    todoDeleted = 0;
+                    setToDelete(todoId, todoDeleted);
                     $(this).parents("li").children("div").children("span, p").css({'text-decoration': 'none', 'color': '#fff'});
                     $(this).parents("li").children(".deleteTodo").css({'background-color': 'rgba(112, 128, 123, .9)',  'color': '#fff'});
                     $(this).parents("li").children(".editTodo").css({'background-color': 'rgba(100, 104, 144, .9)',  'color': '#fff'});
@@ -110,6 +121,12 @@ function loadTodoList(){
                 }
                 setToCompleted(todoId, completeStatus);
             });
+
+            if($('.statusCheck').is(':checked')){
+                $('.statusCheck:checked').parents("li").children("div").children("span, p").css({'text-decoration': 'line-through', 'color': '#828282'});
+                $('.statusCheck:checked').parents("li").children("button").css({'background-color': '#343434',  'color': '#4C4C4C'});
+                $('.statusCheck:checked').parents("li").children("div").children("button").css({'background-color': '#343434',  'color': '#4C4C4C'});
+            }
 
             $(".deleteTodo").click(function(){
                 var todoDeleted;
@@ -139,8 +156,12 @@ function loadTodoList(){
                 edit_todo_item(itemId);
             });
 
-            $(".clearTodo").click(function(){
+            $(".deleteSelectedTodo").click(function(){
                 deleteItem();
+            });
+
+            $(".clearTodo").click(function(){
+                deleteCheckedItem();
             });
 
             $(".moreTodo").click(function(){

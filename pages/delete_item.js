@@ -34,3 +34,19 @@ function deleteItem(){
         }
     });
 }
+
+function deleteCheckedItem(){
+    $.ajax({
+        url: './pages/delete_checked_item.php',
+        method: 'GET',
+        dataType: "text",
+        cache: false,
+        success: function(response){
+            console.log(response, " rows affected");
+            loadTodoList();
+        },
+        error: function(){
+            console.log("Don work");
+        }
+    });
+}
