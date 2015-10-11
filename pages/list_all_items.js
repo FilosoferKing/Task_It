@@ -19,10 +19,17 @@ function loadTodoList(){
                     "deleteStatus": response[i].deleted,
                     "todoId": response[i].id        //store todo item's id
                 });
-                var deleteBtn = $("<button>",{
-                    class: "col-sm-1 deleteTodo btn",
-                    text: "Delete"
-                });
+                if (response[i].deleted == 0) {
+                    var deleteBtn = $("<button>", {
+                        class: "col-sm-1 deleteTodo btn",
+                        text: "Delete"
+                    });
+                } else if (response[i].deleted == 1){
+                    var deleteBtn = $("<button>", {
+                        class: "col-sm-1 deleteTodo btn",
+                        text: "Undo"
+                    });
+                }
                 var editBtn = $("<button>",{
                     class: "col-sm-1 editTodo btn",
                     id: response[i]['id'],
