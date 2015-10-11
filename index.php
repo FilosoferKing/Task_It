@@ -63,24 +63,24 @@ $page_list = [
 
     <script>
 
-        $(document).ready(function () {
-
-            function create_todo_item(){
-                var item_title = $('#item_title').val();
-                var item_due_date = $('#item_due_date').val();
-                var item_details = $('#item_details').val();
-
-                $('.list_item_container:nth-child(4) .item:nth-child(1) p:nth-child(1)').text(item_title);
-                $('.list_item_container:nth-child(4) li:nth-child(1)').text(item_details);
-                $('.list_item_container:nth-child(4) .date p:nth-child(1)').text(item_due_date);
-            }
-
-            $('.create_button').on('click', function () {
-                create_todo_item();
-            });
-
-
-        });
+//        $(document).ready(function () {
+//
+//            function create_todo_item(){
+//                var item_title = $('#item_title').val();
+//                var item_due_date = $('#item_due_date').val();
+//                var item_details = $('#item_details').val();
+//
+//                $('.list_item_container:nth-child(4) .item:nth-child(1) p:nth-child(1)').text(item_title);
+//                $('.list_item_container:nth-child(4) li:nth-child(1)').text(item_details);
+//                $('.list_item_container:nth-child(4) .date p:nth-child(1)').text(item_due_date);
+//            }
+//
+//            $('.create_button').on('click', function () {
+//                create_todo_item();
+//            });
+//
+//
+//        });
 
     </script>
 </head>

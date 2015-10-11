@@ -6,7 +6,7 @@
             </div>
             <div class="col-xs-12 due_date">
                 <input id="item_due_date" class="col-xs-12 item_due_date" type="text" name="due_date"
-                       placeholder="Due Date">
+                       placeholder="Due Date mm/dd/yyyy">
             </div>
             <div class="col-xs-12 due_date">
                 <input id="item_priority" class="col-xs-12 item_priority" type="text" name="priority"

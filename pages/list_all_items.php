@@ -19,7 +19,7 @@ if(mysqli_num_rows($result) > 0){
         $todo_output[$i] = $row;
         $todo_output[$i][created] = date("Y-m-d g:i:s a", strtotime($todo_output[$i]['created']));
         $todo_output[$i][updated] = date("Y-m-d g:i:s a", strtotime($todo_output[$i]['updated']));
-        $todo_output[$i][due_date] = date("Y-m-d g:i:s a", strtotime($todo_output[$i]['due_date']));
+        $todo_output[$i][due_date] = date("m-d-Y g:i:s a", strtotime($todo_output[$i]['due_date']));
         $todo_output[$i][completed_datetime] = date("Y-m-d g:i:s a", strtotime($todo_output[$i]['completed_datetime']));
         $i++;
     }

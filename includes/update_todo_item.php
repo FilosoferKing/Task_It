@@ -11,7 +11,7 @@ $id = $_POST['id'];
 $userId = $_SESSION['id'];
 
 $query = "UPDATE `todo_items`
-SET title = '".$title."', due_date = '".$due_date."', priority = '".$priority."', details = '".$details."'
+SET updated = NOW(), title = '".$title."', due_date = '".$due_date."', priority = '".$priority."', details = '".$details."'
 WHERE user_id = '".$userId."' AND id = '".$id."'";
 
 $result = mysqli_query($conn, $query);

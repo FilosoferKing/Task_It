@@ -1,10 +1,7 @@
 $(document).ready(function () {
     console.log("Login Ready");
 
-    //$('.create').on('click', function(){
-    //    console.log("Worked");
-          view_list();
-    //});
+    view_list();
 
     loadTodoList();
     view_friends();
