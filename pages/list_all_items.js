@@ -173,7 +173,7 @@ function loadTodoList(){
                 assign_user(todo_num, assignee_num);
             });
 
-
+            view_friends();
         },
         error: function(){
             console.log("No bueno");
