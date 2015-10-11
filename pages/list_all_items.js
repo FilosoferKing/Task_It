@@ -98,8 +98,15 @@ function loadTodoList(){
                 var completeStatus;
                 if($(this).is(':checked')){
                     completeStatus = 1
+                    $(this).parents("li").children("div").children("span, p").css({'text-decoration': 'line-through', 'color': '#919191'});
+                    $(this).parents("li").children("button").css({'background-color': '#626262',  'color': '#919191'});
+                    $(this).parents("li").children("div").children("button").css({'background-color': '#626262',  'color': '#919191'});
                 } else {
                     completeStatus = 0;
+                    $(this).parents("li").children("div").children("span, p").css({'text-decoration': 'none', 'color': '#fff'});
+                    $(this).parents("li").children(".deleteTodo").css({'background-color': 'rgba(112, 128, 123, .9)',  'color': '#fff'});
+                    $(this).parents("li").children(".editTodo").css({'background-color': 'rgba(100, 104, 144, .9)',  'color': '#fff'});
+                    $(this).parents("li").children("div").children("button").css({'background-color': 'rgba(99, 134, 153, .9)',  'color': '#fff'});
                 }
                 setToCompleted(todoId, completeStatus);
             });

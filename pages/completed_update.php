@@ -7,7 +7,7 @@ require('../mysql_connect.php');
 
 $id = $_POST[id];
 $status = $_POST[status];
-$query = "UPDATE `todo_items` SET `status` = '$status' WHERE `id` = '$id'";
+$query = "UPDATE `todo_items` SET `status` = '$status', completed_datetime = NOW() WHERE `id` = '$id'";
 
 $result = mysqli_query($conn, $query);
 
