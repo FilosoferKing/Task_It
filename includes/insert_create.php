@@ -19,6 +19,6 @@ $result = mysqli_query($conn, $query);
 
 print_r(mysqli_affected_rows($conn));
 
-print($due_date = date('Y-m-d', strtotime(str_replace('-', '/', $due_date))));
+print($user_id);
 
 ?>

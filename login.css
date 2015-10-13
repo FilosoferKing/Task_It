@@ -23,6 +23,7 @@ body {
 .username {
     position: relative;
     height: 40px;
+    background-color: rgba(21, 24, 0, .9);
     border: 2px solid #638699;
     border-radius: 10px;
     margin-bottom: 2vh;
@@ -32,6 +33,7 @@ body {
 .password {
     position: relative;
     height: 40px;
+    background-color: rgba(21, 24, 0, .9);
     border: 2px solid #638699;
     border-radius: 10px;
     margin-top: 2vh;

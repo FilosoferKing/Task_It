@@ -4,7 +4,7 @@ session_start();
 require('../mysql_connect.php');
 
 $title = $_POST['title'];
-$due_date = $_POST['due_date'];
+$due_date = date('Y-m-d', strtotime(str_replace('-', '/', $_POST['due_date'])));
 $priority = $_POST['priority'];
 $details = $_POST['details'];
 $id = $_POST['id'];

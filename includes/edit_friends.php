@@ -17,7 +17,6 @@ for($i = 0; $i < count($_SESSION['friends']); $i++){
         }
     }else {
         $user_output['error'] = 'You have no friends =(';
-        session_destroy();
     }
 }
 

@@ -32,4 +32,5 @@ if(mysqli_num_rows($result) > 0){
 $output_string = json_encode($user_output);
 
 print($output_string);
+
 ?>

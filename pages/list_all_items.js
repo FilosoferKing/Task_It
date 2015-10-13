@@ -76,10 +76,10 @@ function loadTodoList(){
                     class: "col-sm-12 todoDetails"
                 });
                 var pDetails = $("<p>", {
-                    text: response[i].details
+                    text: "Details: " + response[i].details
                 });
                 var pTimeStamp = $("<p>",{
-                    text: response[i].due_date
+                    text: "Due Date: " + response[i].due_date
                 });
                 todoDetails.append(pDetails, pTimeStamp, assignBtn);
                 todoDiv.append(completedCheck, todoSpan, priority, moreBtn);

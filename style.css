@@ -115,6 +115,15 @@ button {
     margin-bottom: 10px;
 }
 
+.todoItem {
+    text-align: left;
+}
+
+.todoDetails p {
+    text-align: left;
+    margin-top: 5px;
+}
+
 .deleted1{
     text-decoration: line-through;
 }
@@ -136,24 +145,29 @@ input[type=checkbox] {
     color: #fff;
     border: none;
     border-radius: 5px;
-    margin-right: 5px;
+    margin-left: 5px;
     outline: none;
 }
 
-.editTodo {
+.editTodo, .updateTodo {
     background-color: rgba(100, 104, 144, .9);
     color: #fff;
     border: none;
     border-radius: 5px;
+    margin-left: 5px;
     outline: none;
 }
 
-.updateTodo, .clearTodo, .addFriendBtn, .assignTodo, .moreTodo, .deleteSelectedTodo {
+.clearTodo, .addFriendBtn, .assignTodo, .moreTodo, .deleteSelectedTodo {
     background-color: rgba(99, 134, 153, .9);
     color: #fff;
     border: none;
     border-radius: 5px;
     outline: none;
+}
+
+.assignTodo {
+    margin-bottom: 10px;
 }
 
 .clearTodo, .deleteSelectedTodo {
@@ -189,6 +203,10 @@ input[type=checkbox] {
 #taskithead {
     height: 50px;
 
+}
+
+.logout_text {
+    cursor: pointer;
 }
 
 .logout_text h2 {

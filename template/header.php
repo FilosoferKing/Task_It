@@ -55,8 +55,8 @@ session_start();
                 <h2>FRIENDS</h2>
             </div>
             <div class="col-xs-12 col-sm-12 friendsListContainer">
-                <input class="addFriend" type="text" placeholder="Enter friend's email">
-                <button class="addFriendBtn" type="button">Add friend</button>
+                <input class=" col-xs-8 addFriend" type="text" placeholder="Enter friend's email">
+                <button class=" col-xs-4 addFriendBtn" type="button">Add friend</button>
                 <ul class="col-xs-12 friendsList">
                 </ul>
             </div>
