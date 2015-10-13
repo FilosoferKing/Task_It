@@ -6,6 +6,11 @@ require('../mysql_connect.php');
 
 if(isset($_SESSION[id])){
     $query = "SELECT * FROM `todo_items` WHERE `user_id` = '$_SESSION[id]'";
+
+//    $query = "SELECT id FROM `todo_items` WHERE `user_id` = '$_SESSION[id]'
+//              UNION
+//              SELECT post_id FROM `assignments` WHERE `assignee` = '$_SESSION[id]'";
+
     $result = mysqli_query($conn, $query);
 }
 
