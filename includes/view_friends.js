@@ -39,6 +39,7 @@ function add_friend(friendEmail){
         success: function(response){
             console.log(response);
             view_friends();
+            $(".addFriend").val('');
         },
         error: function(){
             console.log("nope");
