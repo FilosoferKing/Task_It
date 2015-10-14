@@ -24,11 +24,42 @@ session_start();
         <div class="col-xs-12 col-sm-4 input">
             <input class="col-xs-12 password" type="text" name="password" placeholder="Password">
         </div>
+        <div class="col-xs-12 newUser">
+            <p>New user? Create an account!</p>
+        </div>
         <button class="col-xs-12 col-sm-4 login_button" data_url="template/header.php" data_target="#top_nav"
                 type="button" name="login">
             LOGIN
         </button>
     </div>
+
+<!--    <div class="col-xs-12 signUpModalContainer">-->
+<!--        <div class="col-xs-12 signUpModal">-->
+<!--            <div class="col-xs-12 signUpTitle">-->
+<!--                <h1>New User</h1>-->
+<!--            </div>-->
+<!--            <div class="col-xs-12 col-sm-4 Input">-->
+<!--                <input class="col-xs-12 username" type="text" name="username" placeholder="Username">-->
+<!--            </div>-->
+<!--            <div class="col-xs-12 col-sm-4 Input">-->
+<!--                <input class="col-xs-12 email" type="text" name="email" placeholder="Email">-->
+<!--            </div>-->
+<!--            <div class="col-xs-12 col-sm-4 Input">-->
+<!--                <input class="col-xs-12 password" type="text" name="password" placeholder="Password">-->
+<!--            </div>-->
+<!--            <div class="col-xs-12 col-sm-4 input">-->
+<!--                <input class="col-xs-12 confirmPassword" type="text" name="confirmpassword" placeholder="Confirm Password">-->
+<!--            </div>-->
+<!--            <button class="col-xs-12 col-sm-4 col-sm-offset-2 createAccount" type="button" name="createaccount">-->
+<!--                Create Account-->
+<!--            </button>-->
+<!--            <button class="col-xs-12 col-sm-4 cancelAccount" type="button" name="cancelaccount">-->
+<!--                Cancel-->
+<!--            </button>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
 </header>
 <?php
 } else {

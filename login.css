@@ -20,7 +20,7 @@ body {
     position: relative;
 }
 
-.username {
+.username, .password, .confirmPassword, .email {
     position: relative;
     height: 40px;
     background-color: #fff;
@@ -32,17 +32,6 @@ body {
     outline: none;
 }
 
-.password {
-    position: relative;
-    height: 40px;
-    background-color: #fff;
-    border: 2px solid #638699;
-    border-radius: 10px;
-    margin-top: 2vh;
-    box-shadow: 0 0 5px 1px #638699 inset;
-    color: #000;
-    outline: none;
-}
 
 .input_div {
     position: relative;
@@ -67,4 +56,43 @@ body {
     background-color: #638699;
     color: #fff;
     opacity: .75;
+}
+
+.newUser p {
+    text-align: center;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/********Sign Up Modal**********/
+.signUpModalContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .9);
+}
+
+.signUpModal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30vw;
+
+}
+
+.signUpTitle h1 {
+    text-align: center;
+    color: #fff;
+}
+
+.createAccount, .cancelAccount {
+    height: 35px;
+    margin-right: 5px;
+    background-color: rgba(99, 134, 153, .9);
+    border: none;
+    border-radius: 5px;
 }

@@ -21,26 +21,6 @@ session_start();
 
     <!--Javascript Files-->
 
-    <script src="includes/login.js"></script>
-
-    <script src="includes/logout.js"></script>
-
-    <script src="includes/view_create_input.js"></script>
-
-    <script src="includes/create.js"></script>
-
-    <script src="pages/list_all_items.js"></script>
-
-    <script src="pages/delete_item.js"></script>
-
-    <script src="includes/edit_todo_item.js"></script>
-
-    <script src="pages/completed_updated.js"></script>
-
-    <script src="includes/view_friends.js"></script>
-
-    <script src="includes/assign_user.js"></script>
-
     <link rel="stylesheet" type="text/css" href="login.css">
 
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -55,6 +35,29 @@ session_start();
     include('template/header.php');
     ?>
 </header>
+
+<!--==============JS Files==============-->
+<script src="includes/login.js"></script>
+
+<script src="includes/logout.js"></script>
+
+<script src="includes/view_create_input.js"></script>
+
+<script src="includes/create.js"></script>
+
+<script src="pages/list_all_items.js"></script>
+
+<script src="pages/delete_item.js"></script>
+
+<script src="includes/edit_todo_item.js"></script>
+
+<script src="pages/completed_updated.js"></script>
+
+<script src="includes/view_friends.js"></script>
+
+<script src="includes/assign_user.js"></script>
+
+<script src="includes/create_account_modal.js"></script>
 
 </body>
 </html>
