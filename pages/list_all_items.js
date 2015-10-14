@@ -100,9 +100,11 @@ function loadTodoList(){
                         }
                     )
                     $(assignmentContainer).append(assignTitle, li);
-                    $(assignmentContainer).insertAfter(todoList);
+
                 }
             }
+
+            $(assignmentContainer).insertAfter(todoList);
 
             var clearBtn = $("<button>",{
                 class: "clearTodo btn",
