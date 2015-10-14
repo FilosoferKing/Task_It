@@ -170,6 +170,11 @@ input[type=checkbox] {
     margin-bottom: 10px;
 }
 
+.addFriendBtn {
+    height: 35px;
+    margin-left: 5px;
+}
+
 .clearTodo, .deleteSelectedTodo {
     margin-left: 5px;
     margin-right: 5px;
@@ -245,7 +250,13 @@ textarea {
     background-color: rgba(21, 24, 0, .25);
     border: 1px solid #151800;
     margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     border-radius: 5px;
+}
+
+.friendsListContainer ul {
+    padding: 0;
 }
 
 .friend {

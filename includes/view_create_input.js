@@ -6,6 +6,7 @@ function view_list(){
         success: function(response){
             console.log("Success view list: ", response);
             $('.create').append(response);
+
             $('.create_button').on('click', function(){
                 console.log("create button clicked");
                 var title = $('.item_title').val();
@@ -13,7 +14,15 @@ function view_list(){
                 var details = $('.item_details').val();
                 var priority = $('.item_priority').val();
                 create_todo_item(title, due_date, priority, details);
-            })
+            });
+
+            $('.cancel_button').on('click', function() {
+                console.log("create button clicked");
+                $('.item_title').val('');
+                $('.item_due_date').val('');
+                $('.item_details').val('');
+                $('.item_priority').val('');
+            });
         },
         error: function(response){
             console.log("Error view list: ", response);

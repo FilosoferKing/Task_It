@@ -8,7 +8,7 @@ function create_todo_item(item_title, item_due_date, item_priority, item_details
         success: function(response){
             console.log("Success create: ", response);
             $('.create input, .create textarea').val('');
-            loadTodoList();
+            getTaskList();
         },
         error: function(response){
             console.log("Error create: ", response);

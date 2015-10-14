@@ -56,14 +56,14 @@ session_start();
             </div>
             <div class="col-xs-12 col-sm-12 friendsListContainer">
                 <input class=" col-xs-8 addFriend" type="text" placeholder="Enter friend's email">
-                <button class=" col-xs-4 addFriendBtn" type="button">Add friend</button>
+                <button class=" col-xs-3 addFriendBtn" type="button">Add friend</button>
                 <ul class="col-xs-12 friendsList">
                 </ul>
             </div>
         </div>
         <div class="col-xs-3 col-sm-6 view">
             <div class="col-xs-12 view_text">
-                <h2>TASK LIST</h2>
+                <h2>MY TASKS</h2>
             </div>
             <div class="col-xs-12 view_titles">
                 <p class="col-sm-1">Delete</p>

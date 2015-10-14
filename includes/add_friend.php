@@ -20,7 +20,7 @@ $friendId = "";
 
 if(mysqli_num_rows($result) > 0){
     while($row = mysqli_fetch_assoc($result)){
-        $friendId= $row['id'];              //Set $friendId to found friend based off of email
+        $friendId = $row['id'];              //Set $friendId to found friend based off of email
         if(array_search(strval($row['id']), $_SESSION['friends'])){
             exit();
         }
@@ -29,7 +29,11 @@ if(mysqli_num_rows($result) > 0){
     $user_output['error'] = 'E-mail not found';
 }
 
-$friendsNum .= ",".$friendId;
+if($friendsNum > 0) {
+    $friendsNum .= "," . $friendId;
+} else {
+    $friendsNum .= $friendId;
+}
 
 $_SESSION['friends'] = explode(",", $friendsNum);
 

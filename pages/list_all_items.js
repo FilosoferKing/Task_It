@@ -1,5 +1,21 @@
 var assignVisible = false;
 
+function getTaskList() {
+    $.ajax({
+        url: 'pages/list_assigned_items.php',
+        method: "GET",
+        dataType: 'json',
+        cache: 'false',
+        success: function (response) {
+            console.log("Assigned Items:", response);
+            loadTodoList(response.id);
+        },
+        error: function () {
+            console.log("No assigned items");
+        }
+    });
+}
+
 function loadTodoList(){
     $.ajax({
         url: 'pages/list_all_items.php',
@@ -12,6 +28,14 @@ function loadTodoList(){
             var todoList = $("<div>", {
                 class: "col-xs-12 col-sm-12 todoList"
             });
+            var assignmentContainer = $("<div>", {
+                class: "col-xs-12 assignmentContainer",
+                id: "assignmentContainer"
+            });
+            var assignTitle = $("<h2>", {
+                text: "Assigned Tasks"
+            });
+            assignmentContainer.append(assignTitle);
             console.log(response.length);
             for(i = 0; i < response.length; i++){
                 var li = $("<li>", {
@@ -83,28 +107,22 @@ function loadTodoList(){
                 var pTimeStamp = $("<p>",{
                     text: "Due Date: " + response[i].due_date
                 });
+
+
                 todoDetails.append(pDetails, pTimeStamp, assignBtn);
                 todoDiv.append(completedCheck, todoSpan, priority, moreBtn);
                 assign_container.append(assignUl);
                 li.append(deleteBtn, editBtn, todoDiv, todoDetails, assign_container);
-                todoList.append(li);
-                if (response[i].user_id == response[i].current_user) {
-                    $('.view').append(todoList);
-                } else {
-                    var assignmentContainer = $("<div>", {
-                        class: "col-xs-12 assignmentContainer",
-                        id: "assignmentContainer" + response[i]['id']
-                    })
-                    var assignTitle = $("<h2>", {
-                            text: "Assigned Tasks"
-                        }
-                    )
-                    $(assignmentContainer).append(assignTitle, li);
 
+                if (response[i].user_id == response[i].current_user) {
+                    todoList.append(li);
+                } else {
+                    assignmentContainer.append(li);
                 }
             }
 
-            $(assignmentContainer).insertAfter(todoList);
+            $('.view').append(todoList);
+            assignmentContainer.insertAfter(todoList);
 
             var clearBtn = $("<button>",{
                 class: "clearTodo btn",
@@ -233,18 +251,3 @@ function loadTodoList(){
     });
 }
 
-function getTaskList() {
-    $.ajax({
-        url: 'pages/list_assigned_items.php',
-        method: "GET",
-        dataType: 'json',
-        cache: 'false',
-        success: function (response) {
-            console.log("Assigned Items:", response);
-            loadTodoList(response.id);
-        },
-        error: function () {
-            console.log("No assigned items");
-        }
-    });
-}
