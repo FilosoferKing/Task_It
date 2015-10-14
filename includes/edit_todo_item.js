@@ -94,7 +94,7 @@ function update_data(itemId, title_text, due_date_text, priority_text, details_t
 
             $("#" + itemId).parents("li").find('.updateTodo').remove();
 
-            loadTodoList();
+            getTaskList();
 
         },
         error: function (response) {

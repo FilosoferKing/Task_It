@@ -8,7 +8,7 @@ function loadTodoList(){
         cache: 'false',
         success: function(response){
             console.log(response);
-            $(".todoList, .clearTodo, .deleteSelectedTodo").remove();
+            $(".todoList, .clearTodo, .deleteSelectedTodo, .assignmentContainer").remove();
             var todoList = $("<div>", {
                 class: "col-xs-12 col-sm-12 todoList"
             });
@@ -17,7 +17,9 @@ function loadTodoList(){
                 var li = $("<li>", {
                     class: "col-xs-12 todoContainer deleted" + response[i].deleted + " completed" + response[i].status,
                     "deleteStatus": response[i].deleted,
-                    "todoId": response[i].id        //store todo item's id
+                    "todoId": response[i].id,
+                    "userId": response[i].user_id,
+                    "currentUser": response[i].current_user
                 });
                 if (response[i].deleted == 0) {
                     var deleteBtn = $("<button>", {
@@ -86,7 +88,20 @@ function loadTodoList(){
                 assign_container.append(assignUl);
                 li.append(deleteBtn, editBtn, todoDiv, todoDetails, assign_container);
                 todoList.append(li);
-                $('.view').append(todoList);
+                if (response[i].user_id == response[i].current_user) {
+                    $('.view').append(todoList);
+                } else {
+                    var assignmentContainer = $("<div>", {
+                        class: "col-xs-12 assignmentContainer",
+                        id: "assignmentContainer" + response[i]['id']
+                    })
+                    var assignTitle = $("<h2>", {
+                            text: "Assigned Tasks"
+                        }
+                    )
+                    $(assignmentContainer).append(assignTitle, li);
+                    $(assignmentContainer).insertAfter(todoList);
+                }
             }
 
             var clearBtn = $("<button>",{
@@ -212,6 +227,22 @@ function loadTodoList(){
         },
         error: function(){
             console.log("No bueno");
+        }
+    });
+}
+
+function getTaskList() {
+    $.ajax({
+        url: 'pages/list_assigned_items.php',
+        method: "GET",
+        dataType: 'json',
+        cache: 'false',
+        success: function (response) {
+            console.log("Assigned Items:", response);
+            loadTodoList(response.id);
+        },
+        error: function () {
+            console.log("No assigned items");
         }
     });
 }

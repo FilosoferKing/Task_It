@@ -39,7 +39,7 @@ function login(user_name, pass_word, url_page, url_target){
             console.log("Login response: ", response);
             console.log(response.friends);
             update_dom(url_page, url_target, response.friends);
-            loadTodoList(response.id);
+            getTaskList();
         },
         error: function (response) {
             console.log(response);
