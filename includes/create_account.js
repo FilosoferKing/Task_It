@@ -89,10 +89,28 @@ function createUser(newUsername, newEmail, newPassword){
         dataType: 'json',
         cache: false,
         success: function(response){
-            console.log("Created User");
+            console.log("Created User", response);
+            if(response == 1){
+                $('.signUpModal .input, .signUpModal .createAccount, .signUpModal .cancelAccount').remove();
+                $('.signUpModal h1').text('Welcome ' + newUsername + '!');
+
+                var signIn = $('<h3>', {
+                    text: 'Click here to login'
+                });
+
+                $('.signUpModal').append(signIn);
+
+                $('.signUpModal h3').on('click', function() {
+                    $('.signUpModalContainer').remove();
+                });
+            }
         },
         error: function(response){
-            console.log("User not created");
+            console.log("Could not connect");
+            $('.signUpModal h1').text('User already exists!');
+            $('.input').on('click', function(){
+                $('.signUpModal h1').text('New User');
+            })
         }
 
     });

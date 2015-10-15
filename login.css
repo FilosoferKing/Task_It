@@ -90,6 +90,12 @@ body {
     color: #fff;
 }
 
+.signUpModal h3 {
+    text-align: center;
+    color: #638699;
+    cursor: pointer;
+}
+
 .createAccount, .cancelAccount {
     height: 35px;
     margin-right: 5px;
