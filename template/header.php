@@ -22,7 +22,7 @@ session_start();
             <input class="col-xs-12 username" type="text" name="username" placeholder="Username">
         </div>
         <div class="col-xs-12 col-sm-4 input">
-            <input class="col-xs-12 password" type="text" name="password" placeholder="Password">
+            <input class="col-xs-12 password" type="password" name="password" placeholder="Password">
         </div>
         <div class="col-xs-12 newUser">
             <p>New user? Create an account!</p>

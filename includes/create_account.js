@@ -32,13 +32,13 @@ function buildUserSignUpModal() {
     });
     var passwordInput = $('<input>', {
         class: "col-xs-12 newPassword",
-        type: "text",
+        type: "password",
         name: "password",
         placeholder: "Password"
     });
     var confirmPasswordInput = $('<input>', {
         class: "col-xs-12 confirmPassword",
-        type: "text",
+        type: "password",
         name: "confirmpassword",
         placeholder: "Confirm Password"
     });
