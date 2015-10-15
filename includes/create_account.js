@@ -2,7 +2,6 @@ $('.newUser').on('click', function(){
     buildUserSignUpModal();
 });
 
-
 function buildUserSignUpModal() {
     var modalContainer = $('<div>', {
         class: "col-xs-12 signUpModalContainer"
@@ -20,19 +19,19 @@ function buildUserSignUpModal() {
         class: "col-xs-12 col-sm-4 input"
     });
     var usernameInput = $('<input>', {
-        class: "col-xs-12 username",
+        class: "col-xs-12 newUsername",
         type: "text",
         name: "username",
         placeholder: "Username"
     });
     var emailInput = $('<input>', {
-        class: "col-xs-12 email",
+        class: "col-xs-12 newEmail",
         type: "text",
         name: "email",
         placeholder: "Email"
     });
     var passwordInput = $('<input>', {
-        class: "col-xs-12 password",
+        class: "col-xs-12 newPassword",
         type: "text",
         name: "password",
         placeholder: "Password"
@@ -53,7 +52,7 @@ function buildUserSignUpModal() {
         class: "col-xs-12 col-sm-4 cancelAccount",
         type: "button",
         name: "cancelaccount",
-        text: "Cancel Account"
+        text: "Cancel"
     });
 
     title.append(titleText);
@@ -62,4 +61,39 @@ function buildUserSignUpModal() {
     modalContainer.append(modal);
     $('body').append(modalContainer);
 
+    $('.createAccount').on('click', function(){
+        console.log("Create account clicked!");
+        var newUsername = $('.newUsername').val();
+        var newEmail = $('.newEmail').val();
+        var newPassword = $('.newPassword').val();
+        var confirmPassword = $('.confirmPassword').val();
+        if (newPassword == confirmPassword){
+            createUser(newUsername, newEmail, newPassword);
+        } else {
+            alert('Passwords do not match');
+            $('.confirmPassword').val('');
+        }
+    });
+
+    $('.cancelAccount').on('click', function() {
+        $('.signUpModalContainer').remove();
+    });
+
+}
+
+function createUser(newUsername, newEmail, newPassword){
+    $.ajax({
+        url: 'includes/new_user.php',
+        data: {username: newUsername, email: newEmail, password: newPassword},
+        method: 'POST',
+        dataType: 'json',
+        cache: false,
+        success: function(response){
+            console.log("Created User");
+        },
+        error: function(response){
+            console.log("User not created");
+        }
+
+    });
 }

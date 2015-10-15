@@ -79,6 +79,10 @@ function update_dom(url, target, friends) {
                 login(user_name, pass_word, url_page, url_target);
             });
 
+            $('.newUser').on('click', function(){
+                buildUserSignUpModal();
+            });
+
         },
         error: function (response) {
             console.log("Error: ", response);

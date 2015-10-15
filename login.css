@@ -20,7 +20,8 @@ body {
     position: relative;
 }
 
-.username, .password, .confirmPassword, .email {
+.newUsername, .newPassword, .confirmPassword, .newEmail,
+.username, .password, .email {
     position: relative;
     height: 40px;
     background-color: #fff;

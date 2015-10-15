@@ -57,7 +57,7 @@ session_start();
 
 <script src="includes/assign_user.js"></script>
 
-<script src="includes/create_account_modal.js"></script>
+<script src="includes/create_account.js"></script>
 
 </body>
 </html>
