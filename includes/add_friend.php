@@ -32,7 +32,7 @@ if(mysqli_num_rows($result) > 0){
 if($friendsNum > 0) {
     $friendsNum .= "," . $friendId;
 } else {
-    $friendsNum .= $friendId;
+    $friendsNum = $friendId;
 }
 
 $_SESSION['friends'] = explode(",", $friendsNum);

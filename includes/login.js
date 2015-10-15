@@ -3,14 +3,12 @@ var username;
 $(document).ready(function () {
     console.log("Login Ready");
 
-    //view_list();
-
     loadTodoList();
 
     update_dom();
 
+    //view_list();
     //view_friends();
-    //$('.hello h3').text('Welcome ' + username + '!');
 
 
     $(".friends_text").on('click', function(){
@@ -71,6 +69,11 @@ function update_dom(url, target, friends) {
             view_list();
 
             view_friends();
+
+            $(".addFriendBtn").on('click', function(){
+                add_friend($(".addFriend").val());
+                console.log("Add friend clicked");
+            });
 
             $(".friends_text").on('click', function(){
                 $(".friendsListContainer").slideToggle();

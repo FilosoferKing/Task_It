@@ -45,7 +45,7 @@ session_start();
     <header class="col-xs-12 logged_in">
         <div class="col-sm-12 firstHeader">
             <div class="col-xs-12 col-sm-3 hello">
-                <h3><?php print($_SESSION['username']) ?></h3>
+                <h3>Welcome <?php print($_SESSION['username']) ?>!</h3>
             </div>
             <div class="col-xs-12 col-sm-6 header_title">
                 <img src="img/taskitalt.png" id="taskithead" alt="Task It">

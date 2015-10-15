@@ -35,7 +35,7 @@ function loadTodoList(){
 
             } else {
 
-                $(".todoList, .clearTodo, .deleteSelectedTodo, .assignmentContainer").remove();
+                $(".todoList, .clearTodo, .deleteSelectedTodo, .assignmentContainer, .view h1").remove();
                 var todoList = $("<div>", {
                     class: "col-xs-12 col-sm-12 todoList"
                 });

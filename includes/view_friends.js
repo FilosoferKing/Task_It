@@ -20,9 +20,7 @@ function view_friends(){
                 $(".friendsList").append(friendLi);
             }
             $(".friendsListContainer").show();
-            $(".addFriendBtn").click(function(){
-                add_friend($(".addFriend").val());
-            });
+
         },
         error: function(){
             console.log("No Work");
@@ -39,7 +37,9 @@ function add_friend(friendEmail){
         success: function(response){
             console.log(response);
             view_friends();
+
             $(".addFriend").val('');
+
         },
         error: function(){
             console.log("nope");
