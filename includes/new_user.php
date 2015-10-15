@@ -8,14 +8,22 @@ $username = $_POST['username'];
 $email = $_POST['email'];
 $password = sha1($_POST['password']);
 
-print("$username"."$email"."$password");
-
-$query = "INSERT INTO `users` (username, email, password) VALUES ('".$username."', '".$email."', '".$password."')";
-
-print("$username "."$email "."$password "."$query");
+$query = "SELECT id FROM `users` WHERE `email` = '".$email."'";
 
 $result = mysqli_query($conn, $query);
 
-print_r(mysqli_affected_rows($conn));
+if(mysqli_num_rows($result) > 0){
+
+    print("User already exists");
+
+} else {
+
+    $query = "INSERT INTO `users` (username, email, password) VALUES ('".$username."', '".$email."', '".$password."')";
+
+    $result = mysqli_query($conn, $query);
+
+    print_r(mysqli_affected_rows($conn));
+
+}
 
 ?>
