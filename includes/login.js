@@ -1,11 +1,17 @@
+var username;
+
 $(document).ready(function () {
     console.log("Login Ready");
 
-    view_list();
+    //view_list();
 
     loadTodoList();
 
-    view_friends();
+    update_dom();
+
+    //view_friends();
+    //$('.hello h3').text('Welcome ' + username + '!');
+
 
     $(".friends_text").on('click', function(){
         $(".friendsListContainer").slideToggle();
@@ -25,6 +31,7 @@ $(document).ready(function () {
         logout(url_page, url_target);
     });
 
+
 });
 
 function login(user_name, pass_word, url_page, url_target){
@@ -40,6 +47,9 @@ function login(user_name, pass_word, url_page, url_target){
             console.log(response.friends);
             update_dom(url_page, url_target, response.friends);
             getTaskList();
+
+            username = response.username;
+
         },
         error: function (response) {
             console.log(response);
@@ -56,6 +66,7 @@ function update_dom(url, target, friends) {
         success: function (response) {
             console.log("Append response: ", target, response);
             $(target).html(response);
+
 
             view_list();
 

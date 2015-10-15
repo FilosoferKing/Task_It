@@ -189,6 +189,10 @@ input[type=checkbox] {
     font-family: script;
     font-size: 1.75vw;
 }
+
+.view h3 {
+    color: #638699;
+}
 /*******************Header*******************/
 .firstHeader {
     background-color: #638699;
@@ -217,6 +221,13 @@ input[type=checkbox] {
 .logout_text h2 {
     font-size: 1vw;
     text-align: center;
+}
+
+.hello h3 {
+    font-family: script;
+    font-size: 1.5vw;
+    text-align: center;
+    padding: 0;
 }
 
 /*************Create Form**************/
