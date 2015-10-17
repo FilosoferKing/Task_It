@@ -2,6 +2,14 @@ $('.newUser').on('click', function(){
     buildUserSignUpModal();
 });
 
+/***************************************
+ * NAME: buildUserSignUpModal
+ * PARAMS: none
+ * GLOBAL VARIABLES: none
+ * LOCAL VARIABLES:
+ * PURPOSE:  builds and appends sign up modal
+ * FUNCTIONS USED: createUser()
+ */
 function buildUserSignUpModal() {
     var modalContainer = $('<div>', {
         class: "col-xs-12 signUpModalContainer"
@@ -62,7 +70,7 @@ function buildUserSignUpModal() {
     $('body').append(modalContainer);
 
     $('.createAccount').on('click', function(){
-        console.log("Create account clicked!");
+        //console.log("Create account clicked!");
         var newUsername = $('.newUsername').val();
         var newEmail = $('.newEmail').val();
         var newPassword = $('.newPassword').val();
@@ -81,6 +89,14 @@ function buildUserSignUpModal() {
 
 }
 
+/***************************************
+ * NAME: createUser()
+ * PARAMS: newUsername, newEmail, newPassword
+ * GLOBAL VARIABLES: none
+ * LOCAL VARIABLES: signIn
+ * PURPOSE:  creates a user account information for the new user
+ * FUNCTIONS USED: none
+ */
 function createUser(newUsername, newEmail, newPassword){
     $.ajax({
         url: 'includes/new_user.php',
@@ -89,7 +105,7 @@ function createUser(newUsername, newEmail, newPassword){
         dataType: 'json',
         cache: false,
         success: function(response){
-            console.log("Created User", response);
+            //console.log("Created User", response);
             if(response == 1){
                 $('.signUpModal .input, .signUpModal .createAccount, .signUpModal .cancelAccount').remove();
                 $('.signUpModal h1').text('Welcome ' + newUsername + '!');
@@ -106,7 +122,7 @@ function createUser(newUsername, newEmail, newPassword){
             }
         },
         error: function(response){
-            console.log("Could not connect");
+            //console.log("Could not connect");
             $('.signUpModal h1').text('User already exists!');
             $('.input').on('click', function(){
                 $('.signUpModal h1').text('New User');

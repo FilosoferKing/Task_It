@@ -14,12 +14,12 @@ function create_todo_item(item_title, item_due_date, item_priority, item_details
         method: 'POST',
         cached: false,
         success: function(response){
-            console.log("Success create: ", response);
+            //console.log("Success create: ", response);
             $('.create input, .create textarea').val('');
             getTaskList();
         },
         error: function(response){
-            console.log("Error create: ", response);
+            //console.log("Error create: ", response);
         }
     })
 

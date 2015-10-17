@@ -1,3 +1,11 @@
+/***************************************
+ * NAME: edit_todo_item
+ * PARAMS: itemId
+ * GLOBAL VARIABLES: none
+ * LOCAL VARIABLES:
+ * PURPOSE:  replaces info fields with input fields to edit the task and update the new information
+ * FUNCTIONS USED: update_data()
+ */
 function edit_todo_item(itemId) {
     var title_text = $("#" + itemId).parents("li").find(".todoItem").text();
     var due_date_text = $("#" + itemId + ' ~ .todoDetails p:nth-child(2)').text();
@@ -61,13 +69,22 @@ function edit_todo_item(itemId) {
 
 }
 
+
+/***************************************
+ * NAME: update_data
+ * PARAMS: itemId, title_text, due_date_text, priority_text, details_text
+ * GLOBAL VARIABLES: none
+ * LOCAL VARIABLES: none
+ * PURPOSE:  sends the new information to be updated for the task
+ * FUNCTIONS USED: edit_todo_item(), getTaskList()
+ */
 function update_data(itemId, title_text, due_date_text, priority_text, details_text){
 
-    console.log("Title: ",title_text);
-    console.log("DueDate: ", due_date_text);
-    console.log("Prioirity: ", priority_text);
-    console.log("Details: ", details_text);
-    console.log("ItemId: ", itemId);
+    //console.log("Title: ",title_text);
+    //console.log("DueDate: ", due_date_text);
+    //console.log("Prioirity: ", priority_text);
+    //console.log("Details: ", details_text);
+    //console.log("ItemId: ", itemId);
     $.ajax({
         url: 'includes/update_todo_item.php',
         method: 'POST',
@@ -75,7 +92,7 @@ function update_data(itemId, title_text, due_date_text, priority_text, details_t
         dataType: 'text',
         cache: false,
         success: function (response) {
-            console.log("Update edit: ", response);
+            //console.log("Update edit: ", response);
 
             var edit_button = $('<button>', {
                 class: 'col-sm-1 editTodo btn',
@@ -86,7 +103,7 @@ function update_data(itemId, title_text, due_date_text, priority_text, details_t
             edit_button.insertAfter($("#" + itemId).parents("li").find(".deleteTodo"));
 
             edit_button.on('click', function(){
-                console.log('Edit clicked');
+                //console.log('Edit clicked');
                 var itemId = $(this).attr('id');
                 $("#" + itemId + " ~ .todoDetails").slideToggle();
                 edit_todo_item(itemId);
