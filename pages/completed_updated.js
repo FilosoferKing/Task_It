@@ -1,7 +1,15 @@
+/***************************************
+ * NAME: setToCompleted
+ * PARAMS: todoId, completeStatus
+ * GLOBAL VARIABLES: none
+ * LOCAL VARIABLES: none
+ * PURPOSE:  updates database to show task as completed
+ * FUNCTIONS USED: none
+ */
 function setToCompleted(todoId, completeStatus){
-    var todoIdComplete= {
+    var todoIdComplete = {
         id: todoId,
-        status: completeStatus,
+        status: completeStatus
     };
     $.ajax({
         url: './pages/completed_update.php',
@@ -10,10 +18,10 @@ function setToCompleted(todoId, completeStatus){
         cache: false,
         data: todoIdComplete,
         success: function(response){
-            console.log(response, " rows affected");
+            //console.log(response, " rows affected");
         },
         error: function(){
-            console.log("Don work");
+            //console.log("Don't work");
         }
     });
 }

@@ -1,3 +1,11 @@
+/***************************************
+ * NAME: view_list
+ * PARAMS: none
+ * GLOBAL VARIABLES: none
+ * LOCAL VARIABLES:
+ * PURPOSE:  retrieves html data to load the task creation form
+ * FUNCTIONS USED: none
+ */
 function view_list(){
     $.ajax({
         url: 'pages/create_todo_item.php',
