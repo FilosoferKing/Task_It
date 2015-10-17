@@ -1,5 +1,13 @@
 var assignVisible = false;
 
+/***************************************
+ * NAME: getTaskList
+ * PARAMS: none
+ * GLOBAL VARIABLES: none
+ * LOCAL VARIABLES: none
+ * PURPOSE:  gets id of all tasks assigned to the current user and stores them in a PHP session variable
+ * FUNCTIONS USED: none
+ */
 function getTaskList() {
     $.ajax({
         url: 'pages/list_assigned_items.php',
@@ -17,6 +25,14 @@ function getTaskList() {
     });
 }
 
+/***************************************
+ * NAME: loadTodoList
+ * PARAMS: none
+ * GLOBAL VARIABLES: assignVisible
+ * LOCAL VARIABLES: none
+ * PURPOSE:  builds individual task container and loads all tasks assigned to user
+ * FUNCTIONS USED: setToDelete(), setToCompleted(), editTodoItem(), deleteCheckedItem(), deleteItem(), assignUser(), view_friends()
+ */
 function loadTodoList(){
     $.ajax({
         url: 'pages/list_all_items.php',
@@ -49,6 +65,8 @@ function loadTodoList(){
                 });
                 assignmentContainer.append(assignTitle);
                 console.log(response.length);
+
+                //loop to build out task container for each individual task
                 for (i = 0; i < response.length; i++) {
                     var li = $("<li>", {
                         class: "col-xs-12 todoContainer deleted" + response[i].deleted + " completed" + response[i].status,
@@ -126,6 +144,8 @@ function loadTodoList(){
                     assign_container.append(assignUl);
                     li.append(deleteBtn, editBtn, todoDiv, todoDetails, assign_container);
 
+                    //if the task was created by the user, it gets assigned to the todoList("my task") list
+                    //if the task was assigned by another user, it gets assigned to the assignmentContainer("assigned tasks") list
                     if (response[i].user_id == response[i].current_user) {
                         todoList.append(li);
                     } else {
