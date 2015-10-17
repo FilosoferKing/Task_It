@@ -1,5 +1,3 @@
-var username;
-
 $(document).ready(function () {
     console.log("Login Ready");
 
@@ -7,14 +5,7 @@ $(document).ready(function () {
 
     update_dom();
 
-    //view_list();
-    //view_friends();
-
-
-    $(".friends_text").on('click', function(){
-        $(".friendsListContainer").slideToggle();
-    });
-
+    //initiates the login function//
     $('.login_button').on('click', function () {
         var user_name = $('.username').val();
         var pass_word = $('.password').val();
@@ -23,6 +14,7 @@ $(document).ready(function () {
         login(user_name, pass_word, url_page, url_target);
     });
 
+    //initiates the logout function//
     $(".logout").click(function(){
         var url_page = $(this).attr('data_url');
         var url_target = $(this).attr('data_target');
@@ -32,8 +24,15 @@ $(document).ready(function () {
 
 });
 
+/***************************************
+ * NAME: login
+ * PARAMS: user_name, pass_word, url_page, url_target
+ * GLOBAL VARIABLES: none
+ * LOCAL VARIABLES: none
+ * PURPOSE:  checks user authenticity and sends back user information also displaying the landing page
+ * FUNCTIONS USED: update_dom(), getTaskList()
+ */
 function login(user_name, pass_word, url_page, url_target){
-    console.log(user_name, pass_word);
     $.ajax({
         url: 'includes/login.php',
         data: {username: user_name, password: pass_word},
@@ -41,20 +40,27 @@ function login(user_name, pass_word, url_page, url_target){
         dataType: "json",
         cache: false,
         success: function (response) {
-            console.log("Login response: ", response);
-            console.log(response.friends);
+            //console.log("Login response: ", response);
+            //console.log(response.friends);
             update_dom(url_page, url_target, response.friends);
             getTaskList();
 
-            username = response.username;
-
         },
         error: function (response) {
-            console.log(response);
+            //console.log(response);
         }
     });
 }
 
+/***************************************
+ * NAME: update_dom
+ * PARAMS: url, target, friends
+ * GLOBAL VARIABLES: none
+ * LOCAL VARIABLES: none
+ * PURPOSE:  calls functions to list out friends and to load task creation form as well as load click handlers
+ * if login is successful, otherwise it will keep the login page loaded
+ * FUNCTIONS USED: view_list(), view_friends(), add_friend(), login(), logout(), buildUserSignUpoModal()
+ */
 function update_dom(url, target, friends) {
     console.log(url, target);
     $.ajax({
@@ -62,21 +68,16 @@ function update_dom(url, target, friends) {
         method: 'GET',
         dataType: 'html',
         success: function (response) {
-            console.log("Append response: ", target, response);
+            //console.log("Append response: ", target, response);
             $(target).html(response);
 
 
-            view_list();
+            view_list();//this will load the item creation form
 
             view_friends();
 
             $(".addFriendBtn").on('click', function(){
                 add_friend($(".addFriend").val());
-                console.log("Add friend clicked");
-            });
-
-            $(".friends_text").on('click', function(){
-                $(".friendsListContainer").slideToggle();
             });
 
             $(".logout").click(function(){
@@ -99,7 +100,7 @@ function update_dom(url, target, friends) {
 
         },
         error: function (response) {
-            console.log("Error: ", response);
+            //console.log("Error: ", response);
         }
     });
 }

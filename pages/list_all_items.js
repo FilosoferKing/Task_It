@@ -26,6 +26,8 @@ function loadTodoList(){
         success: function(response){
             console.log("Load to do list response", response.error);
 
+            $(".todoList, .clearTodo, .deleteSelectedTodo, .assignmentContainer, .view h1").remove();
+
             if(response.error == "No todo items"){
                 var noTasks = $('<h1>', {
                     text: "You have no tasks"
@@ -35,7 +37,6 @@ function loadTodoList(){
 
             } else {
 
-                $(".todoList, .clearTodo, .deleteSelectedTodo, .assignmentContainer, .view h1").remove();
                 var todoList = $("<div>", {
                     class: "col-xs-12 col-sm-12 todoList"
                 });

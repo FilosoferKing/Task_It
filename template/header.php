@@ -25,7 +25,7 @@ session_start();
             <input class="col-xs-12 password" type="password" name="password" placeholder="Password">
         </div>
         <div class="col-xs-12 newUser">
-            <p>New user? Create an account!</p>
+            <p>New user? Click here to create an account!</p>
         </div>
         <button class="col-xs-12 col-sm-4 login_button" data_url="template/header.php" data_target="#top_nav"
                 type="button" name="login">
