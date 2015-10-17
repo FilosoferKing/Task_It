@@ -1,3 +1,11 @@
+/***************************************
+ * NAME: create_todo_item
+ * PARAMS: item_title, item_due_date, item_priority, item_details
+ * GLOBAL VARIABLES: none
+ * LOCAL VARIABLES: none
+ * PURPOSE:  creates a task item to be loaded in the to do list
+ * FUNCTIONS USED: getTaskList()
+ */
 function create_todo_item(item_title, item_due_date, item_priority, item_details){
     $.ajax({
         url: 'includes/insert_create.php',

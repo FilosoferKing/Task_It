@@ -80,12 +80,14 @@ function update_dom(url, target, friends) {
                 add_friend($(".addFriend").val());
             });
 
+            //initiates the logout function//
             $(".logout").click(function(){
                 var url_page = $(this).attr('data_url');
                 var url_target = $(this).attr('data_target');
                 logout(url_page, url_target);
             });
 
+            //initiates the login function//
             $('.login_button').on('click', function () {
                 var user_name = $('.username').val();
                 var pass_word = $('.password').val();
@@ -94,6 +96,7 @@ function update_dom(url, target, friends) {
                 login(user_name, pass_word, url_page, url_target);
             });
 
+            //loads sign up modal//
             $('.newUser').on('click', function(){
                 buildUserSignUpModal();
             });
