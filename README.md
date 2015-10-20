@@ -2,14 +2,12 @@
 
 ![Task It!](/img/taskit.png)
 
-**Description**: This is a classic Tic Tac Toe game. 
+**Description**: Task It is a To Do List applicatin to keep track of your current and upcoming tasks. 
 
 ##Features
-* Win/lose/"cat's game" notification.
-* Player turn notifcation.
-* Standard 3x3 gameboard.
+* Create/edit/delete tasks.
+* Lists a due date and details under "more" option.
+* Assign your tasks to your friends to complete. (friends must be have an account) 
 
 ##Project Notes
-  * This project has a set array of win conditions to check for against an array
-    of clicked boxes during game play. 
-  * The boxes are dynamically loaded.
+  * 
