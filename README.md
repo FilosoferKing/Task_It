@@ -2,7 +2,8 @@
 
 ![Task It!](/img/taskit.png)
 
-**Description**: Task It! is a "to do list" applicatin to keep track of your current and upcoming tasks. 
+**Description**: Task It! is a "to do list" applicatin to keep track of your current and upcoming tasks. <br>
+<a href="http://www.trevorlinan.com/taskit" target="_blank">View Project</a>
 
 ##Features
 * Create/edit/delete tasks.
